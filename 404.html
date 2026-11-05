@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>카페24 시스템 페이지 (프리뷰)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="/jayscos-shop/skin/css/jayscos.css">
+</head>
+<body>
+<div id="wrap">
+  <header class="header"><div class="container inner"><div class="left"></div><div class="logo"><a href="/jayscos-shop/preview/index.html"><img src="/jayscos-shop/skin/img/logo.png" alt="제이즈코스"></a></div><div class="right"></div></div></header>
+  <div id="container"><div class="container" style="max-width:720px;padding:80px 20px;text-align:center">
+    <span class="eyebrow">Cafe24 system page</span>
+    <h2 class="h-section" style="margin:10px 0 16px">카페24가 제공하는 페이지입니다</h2>
+    <p class="lead">요청한 주소 <code id="p" style="background:#eef5fb;padding:2px 8px;border-radius:6px;font-size:14px"></code> 는 회원가입·로그인·장바구니·주문·게시판 등 카페24 시스템이 자동으로 만들어 주는 화면이라 프리뷰에는 없습니다.<br>실제 몰에 스킨을 적용하면 이 스킨의 헤더·푸터·버튼 스타일이 그대로 입혀져 나옵니다.</p>
+    <div style="margin-top:28px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <a href="/jayscos-shop/preview/index.html" class="btn btn-ink">메인으로</a>
+      <a href="/jayscos-shop/preview/list.html" class="btn btn-line">상품 목록</a>
+    </div>
+  </div></div>
+</div>
+<script>document.getElementById('p').textContent=new URLSearchParams(location.search).get('p')||location.pathname.replace('/jayscos-shop/','/');</script>
+</body>
+</html>
