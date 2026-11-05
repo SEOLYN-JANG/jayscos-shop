@@ -144,55 +144,47 @@ html[data-shot] #wrap{min-height:0}
 .float-sns .top.show{opacity:1;pointer-events:auto}
 body.has-sticky .float-sns{bottom:calc(92px + env(safe-area-inset-bottom))}
 
-/* ---------- 5. Hero (풀블리드 슬라이더) ---------- */
-.hero{position:relative;overflow:hidden;color:#fff}
+/* ---------- 5. Hero (기존 몰 연출사진 배경 + HTML 카피) ----------
+   PC 1920×630 / MO 780×1041 사진을 cover 로 깔고, 왼쪽(모바일은 위쪽) 비워 둔 자리에 카피. 글자는 흰색(원래 배너와 동일) + 옅은 그림자 */
+.hero{position:relative;overflow:hidden;color:#fff;background:#bfdcef}
 .hero .slides{position:relative}
-.hero .slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .8s ease,visibility .8s}
+.hero .slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s ease,visibility .9s}
 .hero .slide.on{position:relative;opacity:1;visibility:visible;z-index:1}
-.hero .slide .container{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:0;padding-top:40px;padding-bottom:64px;min-height:560px;align-items:center}
-.hero .s1{background:radial-gradient(120% 90% at 85% 10%,#3f6dff 0%,#1a3f9e 40%,#071e45 100%)}
-.hero .s2{background:radial-gradient(110% 100% at 20% 0%,#ffffff 0%,#dcebf7 55%,#b9d6ee 100%);color:var(--ink)}
-.hero .s3{background:radial-gradient(120% 90% at 80% 20%,#9fc5e8 0%,#4e86c9 45%,#153a78 100%)}
-.hero .copy{position:relative;z-index:2;min-width:0;text-align:left}
-.hero .copy .eyebrow{color:inherit;opacity:.85;font-weight:700;letter-spacing:.12em;margin-bottom:12px}
-.hero .s2 .copy .eyebrow{color:var(--blue);opacity:1}
-.hero .h-display{font-size:36px;line-height:1.18}
-.hero .lead{margin-top:14px;color:inherit;opacity:.9;font-size:15px;line-height:1.7}
-.hero .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
-.hero .pic{position:relative;z-index:1;margin:26px auto 0;width:min(62%,320px);filter:drop-shadow(0 30px 40px rgba(7,30,69,.35))}
-.hero .pic img{width:100%;height:auto;display:block}
-.hero .s1 .pic{width:min(38%,200px)}
-.hero .s3 .pic{width:min(78%,380px)}
-.hero .slide .copy{transform:translateY(16px);opacity:0;transition:transform .8s ease .15s,opacity .8s ease .15s}
+.hero .bg{position:absolute;inset:0;display:block}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
+.hero .slide .container{position:relative;z-index:2;display:flex;align-items:flex-start;min-height:600px;padding-top:44px;padding-bottom:60px}
+.hero .copy{position:relative;min-width:0;max-width:560px;text-shadow:0 2px 20px rgba(7,30,69,.28)}
+.hero .copy .eyebrow{color:#fff;opacity:.92;font-weight:700;letter-spacing:.02em;text-transform:none;font-size:15px;margin-bottom:12px}
+.hero .h-display{font-size:34px;line-height:1.2}
+.hero .lead{margin-top:14px;color:#fff;opacity:.95;font-size:15px;line-height:1.7}
+.hero .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;text-shadow:none}
+.hero .btn-white{box-shadow:0 8px 20px rgba(7,30,69,.15)}
+.hero .slide .copy{transform:translateY(16px);opacity:0;transition:transform .8s ease .2s,opacity .8s ease .2s}
 .hero .slide.on .copy{transform:none;opacity:1}
-.hero .slide .pic{transform:translateY(30px) scale(.96);opacity:0;transition:transform .9s ease .3s,opacity .9s ease .3s}
-.hero .slide.on .pic{transform:none;opacity:1}
-.hero .slide::after{content:"";position:absolute;right:-20%;bottom:-40%;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.22),rgba(255,255,255,0));pointer-events:none}
+.hero .slide .bg img{transform:scale(1.04);transition:transform 7s ease-out}
+.hero .slide.on .bg img{transform:none}
 .hero-nav{position:absolute;right:var(--gutter);bottom:22px;z-index:3;display:none;gap:8px}
 @media(min-width:768px){.hero-nav{display:flex}}
-.hero-nav button{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);color:#fff;display:flex;align-items:center;justify-content:center;transition:.15s}
+.hero-nav button{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,.7);color:#fff;display:flex;align-items:center;justify-content:center;transition:.15s;background:rgba(7,30,69,.08)}
 .hero-nav button:hover{background:#fff;color:var(--ink)}
-.hero[data-slide="2"] .hero-nav button{border-color:rgba(15,27,51,.35);color:var(--ink)}
-.hero[data-slide="2"] .hero-nav button:hover{background:var(--ink);color:#fff}
 .hero-dots{position:absolute;left:var(--gutter);bottom:30px;z-index:3;display:flex;gap:8px}
-.hero-dots li{width:32px;height:4px;border-radius:999px;background:rgba(255,255,255,.3);cursor:pointer;overflow:hidden;position:relative}
-.hero[data-slide="2"] .hero-dots li{background:rgba(15,27,51,.18)}
-.hero-dots li.on::after{content:"";position:absolute;inset:0;background:#fff;transform-origin:left;animation:heroDot var(--hero-interval,5s) linear forwards}
-.hero[data-slide="2"] .hero-dots li.on::after{background:var(--blue)}
+.hero-dots li{width:32px;height:4px;border-radius:999px;background:rgba(255,255,255,.45);cursor:pointer;overflow:hidden;position:relative}
+.hero-dots li.on::after{content:"";position:absolute;inset:0;background:#fff;transform-origin:left;animation:heroDot var(--hero-interval,6s) linear forwards}
 @keyframes heroDot{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@media(min-width:768px){
-  .hero .slide .container{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:30px;padding-top:40px;padding-bottom:80px;min-height:600px}
-  .hero .h-display{font-size:52px}
-  .hero .lead{font-size:18px;margin-top:18px}
-  .hero .btns{margin-top:30px}
-  .hero .pic{margin:0 auto;width:min(80%,420px)}
-  .hero .s1 .pic{width:min(46%,250px)}
-  .hero .s3 .pic{width:min(96%,520px)}
-  .hero-nav{right:max(var(--gutter),calc((100vw - var(--container))/2 + var(--gutter)));bottom:34px}
-  .hero-dots{left:max(var(--gutter),calc((100vw - var(--container))/2 + var(--gutter)));bottom:46px}
+@media(max-width:767px){
+  .hero .slide .container{min-height:0;aspect-ratio:780/1041;padding-top:36px}
+  .hero .bg img{object-position:50% 100%}
 }
-@media(min-width:1024px){.hero .slide .container{min-height:680px}.hero .h-display{font-size:62px}}
-@media(min-width:1280px){.hero .slide .container{min-height:720px}.hero .h-display{font-size:70px}}
+@media(min-width:768px){
+  .hero .slide .container{align-items:center;min-height:0;aspect-ratio:1920/630;padding-top:0;padding-bottom:0}
+  .hero .h-display{font-size:46px}
+  .hero .lead{font-size:17px;margin-top:16px}
+  .hero .btns{margin-top:26px}
+  .hero-nav{right:max(var(--gutter),calc((100vw - var(--container))/2 + var(--gutter)));bottom:34px}
+  .hero-dots{left:max(var(--gutter),calc((100vw - var(--container))/2 + var(--gutter)));bottom:40px}
+}
+@media(min-width:1024px){.hero .h-display{font-size:54px}.hero .copy{max-width:600px}}
+@media(min-width:1440px){.hero .h-display{font-size:60px}}
 
 /* ---------- 6. Quick (원형 분류) ---------- */
 .quick{padding:28px 0 10px;border-bottom:1px solid var(--line-2)}
@@ -346,6 +338,13 @@ html[data-shot] .reveal{opacity:1;transform:none;transition:none}
 .faq-list details p{padding:0 4px 20px 30px;color:var(--ink-2);font-size:15px;line-height:1.75}
 .faq-more{display:flex;justify-content:center;gap:10px;margin-top:30px;flex-wrap:wrap}
 @media(min-width:768px){.faq-list summary{padding:22px 6px}.faq-list summary h3{font-size:18px}.faq-list details p{font-size:16px;padding-left:36px}}
+
+.faq-page{padding-bottom:30px}
+.faq-page .list-head{padding-top:10px}
+.faq-page .faq-list{margin-top:10px}
+.faq-page .faq-list summary h2{font-size:17px;font-weight:700;letter-spacing:-.02em;line-height:1.4;flex:1}
+.faq-page .faq-list summary h2::before{content:"Q.";color:var(--blue);font-weight:800;margin-right:8px}
+@media(min-width:768px){.faq-page .faq-list summary h2{font-size:19px}}
 
 /* ---------- 16. Story ---------- */
 .story{background:var(--sea-2)}
@@ -540,3 +539,7 @@ body.has-sticky{padding-bottom:84px}
 .ec-base-table input[type=text],.ec-base-table input[type=password],.ec-base-table select,.ec-base-table textarea{height:44px;border:1.5px solid var(--line);border-radius:10px;padding:0 12px;background:#fff;max-width:100%}
 .ec-base-table textarea{height:auto;padding:12px}
 .ec-base-help{font-size:13px;color:var(--muted);margin-top:8px}
+
+/* FAQ 페이지 상단 비주얼 */
+.faq-visual{max-width:860px;margin:0 auto 10px;border-radius:var(--radius);overflow:hidden;aspect-ratio:1000/400}
+.faq-visual img{width:100%;height:100%;object-fit:cover}

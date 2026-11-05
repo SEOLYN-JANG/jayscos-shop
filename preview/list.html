@@ -8,7 +8,7 @@
      제이즈코스 (jayscos.com) 카페24 스킨 — 공통 레이아웃 (layout/basic/layout.html)
      SEO/AEO 기준(메세지AI 진단 32항목) 체크리스트:
        타이틀 15~60자 1개 · 메타 디스크립션 · canonical · OG 3개 이상 · preconnect · 파비콘 · lang · DOCTYPE
-       JSON-LD @graph(Organization·WebSite·WebPage·BreadcrumbList·FAQPage, 전부 @id · sameAs)
+       JSON-LD: 공통 @graph(Organization·Brand·WebSite)는 여기, 페이지별(WebPage·Breadcrumb·ItemList·Product / FAQPage)은 index.html·faq.html 본문
        H1은 페이지당 1개 (메인은 index.html 히어로 첫 슬라이드, 상세는 상품명) — 헤더 로고는 h1 금지
      ※ 카페24 관리자 > 쇼핑몰 설정 > 검색엔진 최적화(SEO)에서 타이틀/메타/OG 자동 삽입을 켜 두었다면 중복될 수 있음
         → 적용 후 소스보기에서 <title> 이 2개면 관리자 SEO 설정의 '타이틀 노출'을 끄거나 아래 줄을 삭제
@@ -33,13 +33,14 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://ecimg.cafe24img.com">
 <link rel="dns-prefetch" href="https://img.echosting.cafe24.com">
-<link rel="preload" href="../skin/img/cut_serum.webp" as="image" type="image/webp">
+<link rel="preload" href="../skin/img/hero_serum_pc.webp" as="image" type="image/webp" media="(min-width:768px)">
+<link rel="preload" href="../skin/img/hero_serum_mo.webp" as="image" type="image/webp" media="(max-width:767px)">
 <!-- 서체: Pretendard (본문·헤드라인 공통, ExtraBold 헤드라인) -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <!-- ?shot=1 : 캡처용(자동 슬라이드·등장 애니메이션 정지) -->
 <script>(function(){if(/[?&]shot=1/.test(location.search))document.documentElement.setAttribute('data-shot','1');})();</script>
-<link rel="stylesheet" href="../skin/css/jayscos.css?v=202611051748">
-<script src="../skin/js/jayscos.js?v=202611051748" defer></script>
+<link rel="stylesheet" href="../skin/css/jayscos.css?v=202611051810">
+<script src="../skin/js/jayscos.js?v=202611051810" defer></script>
 <!-- 구조화 데이터: 사이트 공통 엔티티. 상품 상세의 Product 스키마는 product/detail.html 에 별도 -->
 <script type="application/ld+json">
 {
@@ -113,84 +114,6 @@
         "target": { "@type": "EntryPoint", "urlTemplate": "https://jayscos.com/product/search.html?keyword={search_term_string}" },
         "query-input": "required name=search_term_string"
       }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://jayscos.com/#webpage",
-      "url": "https://jayscos.com/",
-      "name": "제이즈코스 | 마이리에 씨-캄 리바이브 세럼·크림 공식몰",
-      "description": "특허 톱니모자반추출물과 나노에멀전 기술로 설계한 민감 피부용 미백·주름 기능성 세럼·크림 공식몰.",
-      "inLanguage": "ko-KR",
-      "isPartOf": { "@id": "https://jayscos.com/#website" },
-      "about": { "@id": "https://jayscos.com/#organization" },
-      "publisher": { "@id": "https://jayscos.com/#organization" },
-      "primaryImageOfPage": { "@id": "https://jayscos.com/#logo" },
-      "breadcrumb": { "@id": "https://jayscos.com/#breadcrumb" },
-      "mainEntity": { "@id": "https://jayscos.com/#faq" },
-      "dateModified": "2026-11-05"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://jayscos.com/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://jayscos.com/" },
-        { "@type": "ListItem", "position": 2, "name": "전체 상품", "item": "https://jayscos.comlist.html?cate_no=28" }
-      ]
-    },
-    {
-      "@type": "ItemList",
-      "@id": "https://jayscos.com/#products",
-      "name": "마이리에 씨-캄 리바이브 라인",
-      "numberOfItems": 5,
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "마이리에 씨-캄 리바이브 세럼 50ml (쌩얼세럼)", "url": "https://jayscos.comdetail_14.html" },
-        { "@type": "ListItem", "position": 2, "name": "마이리에 씨-캄 리바이브 크림 50ml (쌩얼크림)", "url": "https://jayscos.comdetail_13.html" },
-        { "@type": "ListItem", "position": 3, "name": "마이리에 씨-캄 리바이브 세럼+크림 세트", "url": "https://jayscos.comdetail_12.html" },
-        { "@type": "ListItem", "position": 4, "name": "마이리에 씨-캄 리바이브 세럼 1+1", "url": "https://jayscos.comdetail_11.html" },
-        { "@type": "ListItem", "position": 5, "name": "마이리에 씨-캄 리바이브 크림 1+1", "url": "https://jayscos.comdetail_9.html" }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://jayscos.com/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "@id": "https://jayscos.com/#faq-1",
-          "name": "마이리에 씨-캄 리바이브는 어떤 피부에 맞나요?",
-          "acceptedAnswer": { "@type": "Answer", "text": "미백이 필요하지만 피부가 예민해 강한 미백 제품이 부담스러운 분을 기준으로 설계했습니다. 인체적용시험에서 피부자극도 0.00을 확인했고, 진정 성분(톱니모자반추출물·알로에·판테놀)을 기본 베이스로 두었습니다. 민감성·건성·복합성 피부 모두 아침저녁 데일리로 사용할 수 있습니다." }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://jayscos.com/#faq-2",
-          "name": "세럼과 크림은 어떻게 다르고, 어떤 순서로 바르나요?",
-          "acceptedAnswer": { "@type": "Answer", "text": "세럼은 수분감이 가득한 워터리 젤 타입으로 유효 성분을 깊이 전달하고, 크림은 세라마이드 6종으로 수분을 잠그고 피부 장벽을 보호합니다. 세안 후 토너 다음에 세럼을 먼저 바르고, 마지막에 크림으로 마무리하면 됩니다. 두 가지를 함께 쓰면 진정·보습·장벽이 한 번에 완성됩니다." }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://jayscos.com/#faq-3",
-          "name": "톱니모자반추출물은 무엇인가요?",
-          "acceptedAnswer": { "@type": "Answer", "text": "거친 파도와 강한 자외선, 염분이 가득한 바다에서 스스로를 지켜내는 해양 해조류에서 얻은 특허 성분입니다. 원료 실험에서 알부틴 대비 멜라닌 생성 억제 활성이 높게 나타났고, 항산화·항염 복합 작용을 하는 것으로 확인되어 마이리에 씨-캄 리바이브에 50,000ppm으로 담았습니다." }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://jayscos.com/#faq-4",
-          "name": "미백·주름 기능성 화장품인가요?",
-          "acceptedAnswer": { "@type": "Answer", "text": "네. 미백 기능성 성분 나이아신아마이드와 주름 개선 기능성 성분 아데노신을 함유한 미백·주름 개선 기능성 화장품입니다. 여기에 항산화 성분 레스베라트롤과 3중 히알루론산, 세라마이드 6종을 더해 미백·주름·항산화·수분·진정을 한 병에 설계했습니다." }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://jayscos.com/#faq-5",
-          "name": "배송비와 배송 기간은 어떻게 되나요?",
-          "acceptedAnswer": { "@type": "Answer", "text": "기본 배송비는 2,500원이며 50,000원 이상 구매 시 무료배송입니다. 평일 오후 결제 건까지 순차 출고되며 보통 1~3일 안에 받아보실 수 있습니다. 고객센터는 평일 10시부터 16시까지 운영합니다(주말·공휴일 휴무)." }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://jayscos.com/#faq-6",
-          "name": "교환이나 반품은 어떻게 하나요?",
-          "acceptedAnswer": { "@type": "Answer", "text": "상품 수령 후 7일 이내, 미개봉 상태라면 교환·반품이 가능합니다. 단순 변심의 경우 왕복 배송비가 부과되며, 상품 불량·오배송은 제이즈코스가 배송비를 부담합니다. 마이페이지 주문조회 또는 카카오톡 채널로 접수해 주세요." }
-        }
-      ]
     }
   ]
 }
@@ -209,7 +132,7 @@
     <span class="dot">·</span>
     <span class="pc-only-inline">5만원 이상 무료배송</span>
     <span class="dot pc-only-inline">·</span>
-    <a href="list.html?cate_no=25" class="pc-only-inline" data-cat="0">1+1 이벤트 진행 중</a>
+    <a href="list_34.html" class="pc-only-inline" data-cat="3">1+1 이벤트 진행 중</a>
 </div>
 
 <header class="header" id="header">
@@ -229,13 +152,13 @@
             <ul class="gnb">
                 <li><a href="list.html?cate_no=28" class="all">전체상품</a></li>
                 <!-- 분류 메뉴: 관리자 > 상품분류 관리의 1단계 분류가 순서대로 자동 출력 -->
-                <li class="xans-element- xans-layout xans-layout-category" module="Layout_category" style="display:contents"><a href="list.html?cate_no=31" class="xans-record-">세럼</a>
-<a href="list.html?cate_no=32" class="xans-record-">크림</a>
-<a href="list.html?cate_no=33" class="xans-record-">세트 · 1+1</a></li>
-                <li><a href="index.html#event" class="hot">1+1 이벤트</a></li>
+                <li class="xans-element- xans-layout xans-layout-category" module="Layout_category" style="display:contents"><a href="list_31.html" class="xans-record-">세럼</a>
+<a href="list_32.html" class="xans-record-">크림</a>
+<a href="list_33.html" class="xans-record-">세트</a>
+<a href="list_34.html" class="xans-record-">1+1</a></li>
                 <li><a href="index.html#why">브랜드</a></li>
                 <li><a href="system.html?p=/board/review/list.html%3Fboard_no%3D4">리뷰</a></li>
-                <li><a href="index.html#faq">고객지원</a></li>
+                <li><a href="faq.html">FAQ</a></li>
             </ul>
         </nav>
 
@@ -296,17 +219,17 @@
                 <div class="sub">
                     <a href="list.html?cate_no=28">전체 상품</a>
                     <div class="xans-element- xans-layout xans-layout-category" module="Layout_category">
-                        <a href="list.html?cate_no=31" class="xans-record-">세럼</a>
-<a href="list.html?cate_no=32" class="xans-record-">크림</a>
-<a href="list.html?cate_no=33" class="xans-record-">세트 · 1+1</a>
+                        <a href="list_31.html" class="xans-record-">세럼</a>
+<a href="list_32.html" class="xans-record-">크림</a>
+<a href="list_33.html" class="xans-record-">세트</a>
+<a href="list_34.html" class="xans-record-">1+1</a>
                     </div>
                 </div>
             </li>
             <li><a href="index.html#best">베스트</a></li>
-            <li><a href="index.html#event">1+1 이벤트</a></li>
             <li><a href="index.html#why">브랜드 이야기</a></li>
             <li><a href="system.html?p=/board/review/list.html%3Fboard_no%3D4">리뷰</a></li>
-            <li><a href="index.html#faq">자주 묻는 질문</a></li>
+            <li><a href="faq.html">자주 묻는 질문</a></li>
             <li><a href="system.html?p=/order/basket.html">장바구니</a></li>
             <li><a href="system.html?p=/myshop/order/list.html">주문조회</a></li>
         </ul>
@@ -338,9 +261,10 @@
         <div class="cate-tabs">
             <a href="list.html?cate_no=28">전체</a>
             <div class="xans-element- xans-layout xans-layout-category" module="Layout_category" style="display:contents">
-                <a href="list.html?cate_no=31" class="xans-record-">세럼</a>
-<a href="list.html?cate_no=32" class="xans-record-">크림</a>
-<a href="list.html?cate_no=33" class="xans-record-">세트 · 1+1</a>
+                <a href="list_31.html" class="xans-record-">세럼</a>
+<a href="list_32.html" class="xans-record-">크림</a>
+<a href="list_33.html" class="xans-record-">세트</a>
+<a href="list_34.html" class="xans-record-">1+1</a>
             </div>
         </div>
 
@@ -492,7 +416,7 @@
             </ul>
             <ul>
                 <li><a href="system.html?p=/board/free/list.html%3Fboard_no%3D1">공지사항</a></li>
-                <li><a href="system.html?p=/board/faq/list.html%3Fboard_no%3D3">자주묻는질문</a></li>
+                <li><a href="faq.html">자주묻는질문</a></li>
                 <li><a href="system.html?p=/board/review/list.html%3Fboard_no%3D4">구매후기</a></li>
                 <li><a href="system.html?p=/board/product/list.html%3Fboard_no%3D6">구매문의</a></li>
                 <li><a href="system.html?p=/myshop/order/list.html">주문조회</a></li>

@@ -8,7 +8,7 @@
      제이즈코스 (jayscos.com) 카페24 스킨 — 공통 레이아웃 (layout/basic/layout.html)
      SEO/AEO 기준(메세지AI 진단 32항목) 체크리스트:
        타이틀 15~60자 1개 · 메타 디스크립션 · canonical · OG 3개 이상 · preconnect · 파비콘 · lang · DOCTYPE
-       JSON-LD @graph(Organization·WebSite·WebPage·BreadcrumbList·FAQPage, 전부 @id · sameAs)
+       JSON-LD: 공통 @graph(Organization·Brand·WebSite)는 여기, 페이지별(WebPage·Breadcrumb·ItemList·Product / FAQPage)은 index.html·faq.html 본문
        H1은 페이지당 1개 (메인은 index.html 히어로 첫 슬라이드, 상세는 상품명) — 헤더 로고는 h1 금지
      ※ 카페24 관리자 > 쇼핑몰 설정 > 검색엔진 최적화(SEO)에서 타이틀/메타/OG 자동 삽입을 켜 두었다면 중복될 수 있음
         → 적용 후 소스보기에서 <title> 이 2개면 관리자 SEO 설정의 '타이틀 노출'을 끄거나 아래 줄을 삭제
@@ -33,13 +33,14 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://ecimg.cafe24img.com">
 <link rel="dns-prefetch" href="https://img.echosting.cafe24.com">
-<link rel="preload" href="../skin/img/cut_serum.webp" as="image" type="image/webp">
+<link rel="preload" href="../skin/img/hero_serum_pc.webp" as="image" type="image/webp" media="(min-width:768px)">
+<link rel="preload" href="../skin/img/hero_serum_mo.webp" as="image" type="image/webp" media="(max-width:767px)">
 <!-- 서체: Pretendard (본문·헤드라인 공통, ExtraBold 헤드라인) -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <!-- ?shot=1 : 캡처용(자동 슬라이드·등장 애니메이션 정지) -->
 <script>(function(){if(/[?&]shot=1/.test(location.search))document.documentElement.setAttribute('data-shot','1');})();</script>
-<link rel="stylesheet" href="../skin/css/jayscos.css?v=202611051748">
-<script src="../skin/js/jayscos.js?v=202611051748" defer></script>
+<link rel="stylesheet" href="../skin/css/jayscos.css?v=202611051810">
+<script src="../skin/js/jayscos.js?v=202611051810" defer></script>
 <!-- 구조화 데이터: 사이트 공통 엔티티. 상품 상세의 Product 스키마는 product/detail.html 에 별도 -->
 <script type="application/ld+json">
 {
@@ -113,84 +114,6 @@
         "target": { "@type": "EntryPoint", "urlTemplate": "https://jayscos.com/product/search.html?keyword={search_term_string}" },
         "query-input": "required name=search_term_string"
       }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://jayscos.com/#webpage",
-      "url": "https://jayscos.com/",
-      "name": "제이즈코스 | 마이리에 씨-캄 리바이브 세럼·크림 공식몰",
-      "description": "특허 톱니모자반추출물과 나노에멀전 기술로 설계한 민감 피부용 미백·주름 기능성 세럼·크림 공식몰.",
-      "inLanguage": "ko-KR",
-      "isPartOf": { "@id": "https://jayscos.com/#website" },
-      "about": { "@id": "https://jayscos.com/#organization" },
-      "publisher": { "@id": "https://jayscos.com/#organization" },
-      "primaryImageOfPage": { "@id": "https://jayscos.com/#logo" },
-      "breadcrumb": { "@id": "https://jayscos.com/#breadcrumb" },
-      "mainEntity": { "@id": "https://jayscos.com/#faq" },
-      "dateModified": "2026-11-05"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://jayscos.com/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://jayscos.com/" },
-        { "@type": "ListItem", "position": 2, "name": "전체 상품", "item": "https://jayscos.comlist.html?cate_no=28" }
-      ]
-    },
-    {
-      "@type": "ItemList",
-      "@id": "https://jayscos.com/#products",
-      "name": "마이리에 씨-캄 리바이브 라인",
-      "numberOfItems": 5,
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "마이리에 씨-캄 리바이브 세럼 50ml (쌩얼세럼)", "url": "https://jayscos.comdetail_14.html" },
-        { "@type": "ListItem", "position": 2, "name": "마이리에 씨-캄 리바이브 크림 50ml (쌩얼크림)", "url": "https://jayscos.comdetail_13.html" },
-        { "@type": "ListItem", "position": 3, "name": "마이리에 씨-캄 리바이브 세럼+크림 세트", "url": "https://jayscos.comdetail_12.html" },
-        { "@type": "ListItem", "position": 4, "name": "마이리에 씨-캄 리바이브 세럼 1+1", "url": "https://jayscos.comdetail_11.html" },
-        { "@type": "ListItem", "position": 5, "name": "마이리에 씨-캄 리바이브 크림 1+1", "url": "https://jayscos.comdetail_9.html" }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://jayscos.com/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "@id": "https://jayscos.com/#faq-1",
-          "name": "마이리에 씨-캄 리바이브는 어떤 피부에 맞나요?",
-          "acceptedAnswer": { "@type": "Answer", "text": "미백이 필요하지만 피부가 예민해 강한 미백 제품이 부담스러운 분을 기준으로 설계했습니다. 인체적용시험에서 피부자극도 0.00을 확인했고, 진정 성분(톱니모자반추출물·알로에·판테놀)을 기본 베이스로 두었습니다. 민감성·건성·복합성 피부 모두 아침저녁 데일리로 사용할 수 있습니다." }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://jayscos.com/#faq-2",
-          "name": "세럼과 크림은 어떻게 다르고, 어떤 순서로 바르나요?",
-          "acceptedAnswer": { "@type": "Answer", "text": "세럼은 수분감이 가득한 워터리 젤 타입으로 유효 성분을 깊이 전달하고, 크림은 세라마이드 6종으로 수분을 잠그고 피부 장벽을 보호합니다. 세안 후 토너 다음에 세럼을 먼저 바르고, 마지막에 크림으로 마무리하면 됩니다. 두 가지를 함께 쓰면 진정·보습·장벽이 한 번에 완성됩니다." }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://jayscos.com/#faq-3",
-          "name": "톱니모자반추출물은 무엇인가요?",
-          "acceptedAnswer": { "@type": "Answer", "text": "거친 파도와 강한 자외선, 염분이 가득한 바다에서 스스로를 지켜내는 해양 해조류에서 얻은 특허 성분입니다. 원료 실험에서 알부틴 대비 멜라닌 생성 억제 활성이 높게 나타났고, 항산화·항염 복합 작용을 하는 것으로 확인되어 마이리에 씨-캄 리바이브에 50,000ppm으로 담았습니다." }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://jayscos.com/#faq-4",
-          "name": "미백·주름 기능성 화장품인가요?",
-          "acceptedAnswer": { "@type": "Answer", "text": "네. 미백 기능성 성분 나이아신아마이드와 주름 개선 기능성 성분 아데노신을 함유한 미백·주름 개선 기능성 화장품입니다. 여기에 항산화 성분 레스베라트롤과 3중 히알루론산, 세라마이드 6종을 더해 미백·주름·항산화·수분·진정을 한 병에 설계했습니다." }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://jayscos.com/#faq-5",
-          "name": "배송비와 배송 기간은 어떻게 되나요?",
-          "acceptedAnswer": { "@type": "Answer", "text": "기본 배송비는 2,500원이며 50,000원 이상 구매 시 무료배송입니다. 평일 오후 결제 건까지 순차 출고되며 보통 1~3일 안에 받아보실 수 있습니다. 고객센터는 평일 10시부터 16시까지 운영합니다(주말·공휴일 휴무)." }
-        },
-        {
-          "@type": "Question",
-          "@id": "https://jayscos.com/#faq-6",
-          "name": "교환이나 반품은 어떻게 하나요?",
-          "acceptedAnswer": { "@type": "Answer", "text": "상품 수령 후 7일 이내, 미개봉 상태라면 교환·반품이 가능합니다. 단순 변심의 경우 왕복 배송비가 부과되며, 상품 불량·오배송은 제이즈코스가 배송비를 부담합니다. 마이페이지 주문조회 또는 카카오톡 채널로 접수해 주세요." }
-        }
-      ]
     }
   ]
 }
@@ -209,7 +132,7 @@
     <span class="dot">·</span>
     <span class="pc-only-inline">5만원 이상 무료배송</span>
     <span class="dot pc-only-inline">·</span>
-    <a href="list.html?cate_no=25" class="pc-only-inline" data-cat="0">1+1 이벤트 진행 중</a>
+    <a href="list_34.html" class="pc-only-inline" data-cat="3">1+1 이벤트 진행 중</a>
 </div>
 
 <header class="header" id="header">
@@ -229,13 +152,13 @@
             <ul class="gnb">
                 <li><a href="list.html?cate_no=28" class="all">전체상품</a></li>
                 <!-- 분류 메뉴: 관리자 > 상품분류 관리의 1단계 분류가 순서대로 자동 출력 -->
-                <li class="xans-element- xans-layout xans-layout-category" module="Layout_category" style="display:contents"><a href="list.html?cate_no=31" class="xans-record-">세럼</a>
-<a href="list.html?cate_no=32" class="xans-record-">크림</a>
-<a href="list.html?cate_no=33" class="xans-record-">세트 · 1+1</a></li>
-                <li><a href="index.html#event" class="hot">1+1 이벤트</a></li>
+                <li class="xans-element- xans-layout xans-layout-category" module="Layout_category" style="display:contents"><a href="list_31.html" class="xans-record-">세럼</a>
+<a href="list_32.html" class="xans-record-">크림</a>
+<a href="list_33.html" class="xans-record-">세트</a>
+<a href="list_34.html" class="xans-record-">1+1</a></li>
                 <li><a href="index.html#why">브랜드</a></li>
                 <li><a href="system.html?p=/board/review/list.html%3Fboard_no%3D4">리뷰</a></li>
-                <li><a href="index.html#faq">고객지원</a></li>
+                <li><a href="faq.html">FAQ</a></li>
             </ul>
         </nav>
 
@@ -296,17 +219,17 @@
                 <div class="sub">
                     <a href="list.html?cate_no=28">전체 상품</a>
                     <div class="xans-element- xans-layout xans-layout-category" module="Layout_category">
-                        <a href="list.html?cate_no=31" class="xans-record-">세럼</a>
-<a href="list.html?cate_no=32" class="xans-record-">크림</a>
-<a href="list.html?cate_no=33" class="xans-record-">세트 · 1+1</a>
+                        <a href="list_31.html" class="xans-record-">세럼</a>
+<a href="list_32.html" class="xans-record-">크림</a>
+<a href="list_33.html" class="xans-record-">세트</a>
+<a href="list_34.html" class="xans-record-">1+1</a>
                     </div>
                 </div>
             </li>
             <li><a href="index.html#best">베스트</a></li>
-            <li><a href="index.html#event">1+1 이벤트</a></li>
             <li><a href="index.html#why">브랜드 이야기</a></li>
             <li><a href="system.html?p=/board/review/list.html%3Fboard_no%3D4">리뷰</a></li>
-            <li><a href="index.html#faq">자주 묻는 질문</a></li>
+            <li><a href="faq.html">자주 묻는 질문</a></li>
             <li><a href="system.html?p=/order/basket.html">장바구니</a></li>
             <li><a href="system.html?p=/myshop/order/list.html">주문조회</a></li>
         </ul>
@@ -319,57 +242,117 @@
             
 <!-- =====================================================================
      메인 (index.html) — 레퍼런스 melable.co.kr 구조를 마이리에 씨-캄 리바이브 라인에 맞춰 구성
-     섹션: 히어로 슬라이더(H1) → 빠른 분류 아이콘 → 베스트셀러(진열1, 번호 배지) → 피부 고민별 케어(탭)
-           → 왜 마이리에인가(3 포인트 + 실험 수치) → 성분 설계 4블록 → 인체적용시험 결과 → 1+1 이벤트(진열2)
-           → 고객 리뷰 → 자주 묻는 질문(FAQPage 스키마와 동일 문답) → 브랜드 스토리 → 인스타그램
+     섹션: 히어로 슬라이더(기존 연출사진 배경 + HTML 카피, H1) → 빠른 분류 아이콘 → 베스트셀러(진열1, 번호 배지)
+           → 피부 고민별 케어(탭) → 왜 마이리에인가(3 포인트 + 실험 수치) → 인체적용시험 → 1+1 이벤트(진열2)
+           → 고객 리뷰 → 브랜드 스토리 → 인스타그램   (성분 설계·FAQ 섹션은 2026-11-05 업체 요청으로 제외, FAQ는 /faq.html)
      상품 진열: 관리자 > 상품진열 > 메인진열 "진열1 = 베스트(4개)", "진열2 = 1+1 이벤트(3개)"
      H1은 히어로 첫 슬라이드 하나뿐. 모든 이미지는 alt 필수, loading="lazy"(첫 화면 제외)
+     히어로 사진: 기존 몰 배너 원본(3840×1260 / 1170×1562)에서 글자만 지운 파일(images/tools/hero_clean.py)
      ===================================================================== -->
 <div class="main-page">
 
-<!-- 1. 히어로 슬라이더: 5초 자동 전환 · 화살표 · 점 · 스와이프 -->
-<section class="hero hero-slider" id="top" data-interval="5000" aria-label="메인 배너">
+<!-- 메인 페이지 구조화 데이터: WebPage · BreadcrumbList · ItemList · 대표 상품(Product/Offer). 사이트 공통(Organization·Brand·WebSite)은 layout.html -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://jayscos.com/#webpage",
+      "url": "https://jayscos.com/",
+      "name": "제이즈코스 | 마이리에 씨-캄 리바이브 세럼·크림 공식몰",
+      "description": "특허 톱니모자반추출물과 나노에멀전 기술로 설계한 민감 피부용 미백·주름 기능성 세럼·크림 공식몰.",
+      "inLanguage": "ko-KR",
+      "isPartOf": { "@id": "https://jayscos.com/#website" },
+      "about": { "@id": "https://jayscos.com/#organization" },
+      "publisher": { "@id": "https://jayscos.com/#organization" },
+      "primaryImageOfPage": { "@id": "https://jayscos.com/#logo" },
+      "breadcrumb": { "@id": "https://jayscos.com/#breadcrumb" },
+      "mainEntity": { "@id": "https://jayscos.com/#products" },
+      "dateModified": "2026-11-05"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://jayscos.com/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://jayscos.com/" },
+        { "@type": "ListItem", "position": 2, "name": "전체 상품", "item": "https://jayscos.comlist.html?cate_no=28" }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://jayscos.com/#products",
+      "name": "마이리에 씨-캄 리바이브 라인",
+      "numberOfItems": 5,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "마이리에 씨-캄 리바이브 세럼 50ml (쌩얼세럼)", "url": "https://jayscos.comdetail_14.html" },
+        { "@type": "ListItem", "position": 2, "name": "마이리에 씨-캄 리바이브 크림 50ml (쌩얼크림)", "url": "https://jayscos.comdetail_13.html" },
+        { "@type": "ListItem", "position": 3, "name": "마이리에 씨-캄 리바이브 세럼+크림 세트", "url": "https://jayscos.comdetail_12.html" },
+        { "@type": "ListItem", "position": 4, "name": "마이리에 씨-캄 리바이브 세럼 1+1", "url": "https://jayscos.comdetail_11.html" },
+        { "@type": "ListItem", "position": 5, "name": "마이리에 씨-캄 리바이브 크림 1+1", "url": "https://jayscos.comdetail_9.html" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://jayscos.comdetail_14.html#product",
+      "name": "마이리에 씨-캄 리바이브 세럼 50ml (쌩얼세럼)",
+      "description": "특허 톱니모자반추출물 50,000ppm과 나노에멀전 기술로 설계한 미백·주름 기능성 워터리 젤 세럼. 피부자극도 0.00, 즉각 진정 24%·보습 129% 인체적용시험 완료.",
+      "image": "https://jayscos.com/web/upload/jayscos/img/prd_serum.webp",
+      "brand": { "@id": "https://jayscos.com/#brand" },
+      "manufacturer": { "@id": "https://jayscos.com/#organization" },
+      "category": "스킨케어 > 세럼",
+      "offers": { "@type": "Offer", "url": "https://jayscos.comdetail_14.html", "priceCurrency": "KRW", "price": "31900", "availability": "https://schema.org/InStock", "seller": { "@id": "https://jayscos.com/#organization" } }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://jayscos.comdetail_13.html#product",
+      "name": "마이리에 씨-캄 리바이브 크림 50ml (쌩얼크림)",
+      "description": "세라마이드 6종과 3중 히알루론산으로 수분 장벽을 잠그는 미백·주름 기능성 크림. 톱니모자반추출물 50,000ppm, 피부자극도 0.00.",
+      "image": "https://jayscos.com/web/upload/jayscos/img/prd_cream.webp",
+      "brand": { "@id": "https://jayscos.com/#brand" },
+      "manufacturer": { "@id": "https://jayscos.com/#organization" },
+      "category": "스킨케어 > 크림",
+      "offers": { "@type": "Offer", "url": "https://jayscos.comdetail_13.html", "priceCurrency": "KRW", "price": "33900", "availability": "https://schema.org/InStock", "seller": { "@id": "https://jayscos.com/#organization" } }
+    }
+  ]
+}
+</script>
+
+<!-- 1. 히어로 슬라이더: 기존 몰 연출사진(물결 위 세럼 / 하늘색 배경 크림) 배경 + HTML 카피. 6초 자동 전환 · 화살표 · 점 · 스와이프 -->
+<section class="hero hero-slider" id="top" data-interval="6000" aria-label="메인 배너">
     <div class="slides">
         <div class="slide s1 on">
+            <picture class="bg">
+                <source media="(max-width:767px)" srcset="../skin/img/hero_serum_mo.webp">
+                <img src="../skin/img/hero_serum_pc.webp" alt="물결 위에 놓인 마이리에 씨-캄 리바이브 세럼" width="1920" height="630" fetchpriority="high">
+            </picture>
             <div class="container">
                 <div class="copy">
-                    <span class="eyebrow">Myrié Sea-Calm Revive</span>
+                    <span class="eyebrow">마이리에</span>
                     <h1 class="h-display">자극 없이 맑아지는 피부<br>매일 쓰는 미백 세럼</h1>
                     <p class="lead">특허 톱니모자반추출물 50,000ppm · 나노에멀전 기술 <br class="pc-br">미백·주름 기능성, 피부자극 0.00</p>
                     <div class="btns">
-                        <a href="detail_14.html" class="btn btn-white btn-lg">쌩얼세럼 보러가기</a>
-                        <a href="list.html?cate_no=28" class="btn btn-ghost btn-lg">전체 상품</a>
+                        <a href="detail_14.html" class="btn btn-white btn-lg">제품 보러가기</a>
+                        <a href="index.html#why" class="btn btn-ghost btn-lg">브랜드 이야기</a>
                     </div>
                 </div>
-                <div class="pic"><img src="../skin/img/cut_serum.webp" alt="마이리에 씨-캄 리바이브 세럼 50ml" width="640" height="640" fetchpriority="high"></div>
             </div>
         </div>
         <div class="slide s2">
+            <picture class="bg">
+                <source media="(max-width:767px)" srcset="../skin/img/hero_cream_mo.webp">
+                <img src="../skin/img/hero_cream_pc.webp" alt="하늘색 배경 위에 쌓인 마이리에 씨-캄 리바이브 크림 두 개" width="1920" height="630" loading="lazy">
+            </picture>
             <div class="container">
                 <div class="copy">
-                    <span class="eyebrow">Sea-Calm Revive Cream</span>
-                    <h2 class="h-display">세라마이드 6종으로<br>잠그는 수분 장벽</h2>
-                    <p class="lead">3중 히알루론산 · 판테놀 · 세라마이드 6종 <br class="pc-br">보습 129% 증가, 즉각 진정 24% 인체적용시험 완료</p>
+                    <span class="eyebrow">마이리에</span>
+                    <h2 class="h-display">하루의 끝에서 완성되는 피부<br>진정과 보습의 균형</h2>
+                    <p class="lead">세라마이드 6종 · 3중 히알루론산 · 판테놀 <br class="pc-br">보습 129% 증가, 즉각 진정 24% 인체적용시험 완료</p>
                     <div class="btns">
-                        <a href="detail_13.html" class="btn btn-ink btn-lg">쌩얼크림 보러가기</a>
-                        <a href="index.html#why" class="btn btn-line btn-lg">성분 설계 보기</a>
-                    </div>
-                </div>
-                <div class="pic"><img src="../skin/img/cut_cream.webp" alt="마이리에 씨-캄 리바이브 크림 50ml" width="640" height="640" loading="lazy"></div>
-            </div>
-        </div>
-        <div class="slide s3">
-            <div class="container">
-                <div class="copy">
-                    <span class="eyebrow">Serum + Cream Set</span>
-                    <h2 class="h-display">세럼으로 채우고<br>크림으로 잠급니다</h2>
-                    <p class="lead">진정 · 보습 · 장벽 · 미백 · 주름을 한 번에 <br class="pc-br">세럼+크림 세트와 1+1 구성으로 더 가볍게</p>
-                    <div class="btns">
-                        <a href="detail_12.html" class="btn btn-white btn-lg">세럼+크림 세트</a>
+                        <a href="detail_13.html" class="btn btn-white btn-lg">제품 보러가기</a>
                         <a href="index.html#event" class="btn btn-ghost btn-lg">1+1 이벤트</a>
                     </div>
                 </div>
-                <div class="pic"><img src="../skin/img/cut_set.webp" alt="마이리에 씨-캄 리바이브 세럼+크림 세트" width="640" height="640" loading="lazy"></div>
             </div>
         </div>
     </div>
@@ -380,16 +363,16 @@
     <ol class="hero-dots" aria-label="슬라이드 선택"></ol>
 </section>
 
-<!-- 2. 빠른 분류 (원형 아이콘) -->
+<!-- 2. 빠른 분류 (원형 아이콘). data-cat="N" = 관리자 상품분류 N번째(0부터) 링크를 JS가 연결 -->
 <section class="quick" aria-label="빠른 메뉴">
     <div class="container">
         <ul>
             <li><a href="index.html#best"><span class="circle txt">BEST</span><strong>베스트</strong></a></li>
-            <li><a href="detail_14.html"><span class="circle"><img src="../skin/img/prd_serum.webp" alt="쌩얼세럼" loading="lazy" width="120" height="120"></span><strong>세럼</strong></a></li>
-            <li><a href="detail_13.html"><span class="circle"><img src="../skin/img/prd_cream.webp" alt="쌩얼크림" loading="lazy" width="120" height="120"></span><strong>크림</strong></a></li>
-            <li><a href="detail_12.html"><span class="circle"><img src="../skin/img/prd_set.webp" alt="세럼+크림 세트" loading="lazy" width="120" height="120"></span><strong>세트</strong></a></li>
-            <li><a href="index.html#event"><span class="circle txt hot">1+1</span><strong>이벤트</strong></a></li>
-            <li><a href="index.html#faq"><span class="circle txt q">Q&amp;A</span><strong>고객지원</strong></a></li>
+            <li><a href="list_31.html" data-cat="0"><span class="circle"><img src="../skin/img/prd_serum.webp" alt="쌩얼세럼" loading="lazy" width="120" height="120"></span><strong>세럼</strong></a></li>
+            <li><a href="list_32.html" data-cat="1"><span class="circle"><img src="../skin/img/prd_cream.webp" alt="쌩얼크림" loading="lazy" width="120" height="120"></span><strong>크림</strong></a></li>
+            <li><a href="list_33.html" data-cat="2"><span class="circle"><img src="../skin/img/prd_set.webp" alt="세럼+크림 세트" loading="lazy" width="120" height="120"></span><strong>세트</strong></a></li>
+            <li><a href="list_34.html" data-cat="3"><span class="circle txt hot">1+1</span><strong>1+1</strong></a></li>
+            <li><a href="faq.html"><span class="circle txt q">FAQ</span><strong>고객지원</strong></a></li>
         </ul>
     </div>
 </section>
@@ -485,11 +468,11 @@
     </div>
 </section>
 
-<!-- 4. 피부 고민별 케어 (탭) -->
+<!-- 4. 피부 고민별 케어 (탭) — 제목은 질문형(AI 인용용) -->
 <section class="section concern" id="concern">
     <div class="container">
         <div class="section-head center">
-            <h2 class="h-section">피부 고민별 케어</h2>
+            <h2 class="h-section">어떤 피부 고민이 있으신가요?</h2>
             <p class="sub">고민은 달라도 답은 하나, 마이리에 씨-캄 리바이브가 설계된 방식</p>
         </div>
         <div class="tabs" role="tablist">
@@ -519,7 +502,7 @@
                         <p>밤부사 불가리스수(대나무수)와 알로에베라잎수가 피부 온도를 낮추고 붉은기를 가라앉힙니다. 세명대학교 피부화장품임상센터 인체적용시험에서 외부 물리적 자극에 의한 즉각적 피부 진정 24% 개선과 피부자극도 0.00을 확인했습니다. 평소 홍조가 있거나 세안 후 따가운 피부에 맞춰 설계했습니다.</p>
                         <a href="detail_13.html" class="btn btn-ink">쌩얼크림 구매하기</a>
                     </div>
-                    <div class="img"><img src="../skin/img/blue_cream.webp" alt="진정 케어 마이리에 씨-캄 리바이브 크림" loading="lazy" width="1000" height="890"></div>
+                    <div class="img"><img src="../skin/img/blue_cream.webp" alt="진정 케어 마이리에 씨-캄 리바이브 크림" loading="lazy" width="500" height="410"></div>
                 </div>
             </div>
             <div class="panel" data-panel="c3">
@@ -552,7 +535,7 @@
                         <p>미백 제품만 쓰면 피부가 뒤집어지고, 잡티는 신경 쓰이는데 자극이 무서운 분을 기준으로 20년 피부 연구자가 처방했습니다. 진정 성분을 기본 베이스로 두고 락토바실러스발효물로 피부 방어력을 높여, 민감 피부도 매일 아침저녁 사용할 수 있도록 설계했습니다.</p>
                         <a href="detail_14.html" class="btn btn-ink">쌩얼세럼 구매하기</a>
                     </div>
-                    <div class="img"><img src="../skin/img/fern_cream.webp" alt="민감 피부용 마이리에 씨-캄 리바이브 크림" loading="lazy" width="1000" height="480"></div>
+                    <div class="img"><img src="../skin/img/fern_cream.webp" alt="민감 피부용 마이리에 씨-캄 리바이브 크림" loading="lazy" width="1000" height="430"></div>
                 </div>
             </div>
         </div>
@@ -581,10 +564,10 @@
                 <p>유효 성분 전달을 고려한 미세공정으로 입자를 20nm(머리카락 굵기의 1/5,000)까지 줄였습니다. 입자가 작아질수록 흡수 표면적은 넓어져 빠른 진정, 맑은 피부 컨디션, 깊은 흡수를 설계했습니다.</p>
             </article>
             <article class="point">
-                <div class="img"><img src="../skin/img/model.webp" alt="마이리에 씨-캄 리바이브 세럼과 크림을 사용하는 모델" loading="lazy" width="1000" height="750"></div>
+                <div class="img"><img src="../skin/img/model.webp" alt="마이리에 씨-캄 리바이브 세럼과 크림을 사용하는 모델" loading="lazy" width="1000" height="490"></div>
                 <span class="no">POINT 3</span>
                 <h3>진정 · 보습 · 장벽까지 한 번에 완성하는 배합</h3>
-                <p>이것저것 바르기보다 하나로 정리하고 싶은 분을 위해, 기초 베이스부터 보습·장벽, 미백·항노화, 진정·장벽 강화까지 네 층의 성분을 한 병에 담았습니다. 20년 피부 연구자의 배합입니다.</p>
+                <p>이것저것 바르기보다 하나로 정리하고 싶은 분을 위해, 진정 수분 베이스(대나무수·알로에)부터 보습·장벽(3중 히알루론산·세라마이드 6종·판테놀), 미백·항노화(나이아신아마이드·아데노신·레스베라트롤), 장벽 강화(락토바실러스발효물)까지 네 층의 성분을 한 병에 담았습니다.</p>
             </article>
         </div>
         <div class="stats">
@@ -597,52 +580,7 @@
     </div>
 </section>
 
-<!-- 6. 성분 설계 4블록 -->
-<section class="section formula" id="formula">
-    <div class="container">
-        <div class="section-head center">
-            <span class="eyebrow">Formula</span>
-            <h2 class="h-section">철저한 성분 결벽주의의 결과,<br class="mo-br"> 자신 있게 공개합니다</h2>
-        </div>
-        <div class="grid">
-            <div class="card">
-                <h3><em>01</em>기초 베이스 &amp; 진정 수분 베이스</h3>
-                <ul>
-                    <li><strong>밤부사 불가리스수(대나무수)</strong><span>피부 온도를 낮추고 진정·수분 공급</span></li>
-                    <li><strong>알로에베라잎수 · 알로에베라잎추출물</strong><span>자극 완화, 보습 강화, 붉은기 진정</span></li>
-                    <li><strong>프로판다이올 · 부틸렌글라이콜 · 펜틸렌글라이콜</strong><span>수분 흡수력 향상, 성분 침투 보조</span></li>
-                    <li><strong>멘틸락테이트</strong><span>쿨링감 부여, 산뜻한 사용감</span></li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3><em>02</em>보습 &amp; 장벽 강화 핵심</h3>
-                <ul>
-                    <li><strong>3중 히알루론산군</strong><span>저·중·고분자 구조로 수분을 각 층에 채우는 보습 레이어링</span></li>
-                    <li><strong>판테놀</strong><span>수분 유지 + 피부 장벽 보호 + 진정 효과</span></li>
-                    <li><strong>세라마이드 6종</strong><span>엔피·엔에스·에이피·이오피·에이에스 — 장벽 보강, 수분 증발 차단, 유수분 밸런스 유지</span></li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3><em>03</em>미백 &amp; 항노화 기능</h3>
-                <ul>
-                    <li><strong>나이아신아마이드</strong><span>미백 기능성 — 멜라닌 생성을 억제해 피부톤 개선</span></li>
-                    <li><strong>아데노신</strong><span>주름 개선 기능성 — 피부 탄력 강화</span></li>
-                    <li><strong>레스베라트롤</strong><span>폴리페놀 계열 항산화제, 노화·염증 완화</span></li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3><em>04</em>진정 + 장벽 강화</h3>
-                <ul>
-                    <li><strong>락토바실러스발효물</strong><span>유익균 활성화로 피부 방어력 강화</span></li>
-                    <li><strong>톱니모자반추출물</strong><span>미백·항산화·항염 복합 작용 (멜라닌 억제, 산화 방지)</span></li>
-                </ul>
-            </div>
-        </div>
-        <p class="cap">전성분(세럼·크림 공통 베이스): 알로에베라잎수, 밤부사 불가리스수, 에틸헥실팔미테이트, 메틸프로판다이올, 글리세린, 프로판다이올, 정제수, 나이아신아마이드, 1,2-헥산다이올, 톱니모자반추출물, 알로에베라잎추출물, 부틸렌글라이콜, 판테놀, 세라마이드엔피·엔에스·에이피·이오피·에이에스, 소듐하이알루로네이트, 하이드롤라이즈드하이알루로닉애씨드, 소듐아세틸레이티드하이알루로네이트, 레스베라트롤, 락토바실러스발효물, 아데노신, 멘틸락테이트 외. 정확한 전성분은 각 상품 페이지에서 확인해 주세요.</p>
-    </div>
-</section>
-
-<!-- 7. 인체적용시험 -->
+<!-- 6. 인체적용시험 -->
 <section class="section clinical" id="clinical">
     <div class="container">
         <div class="wrap">
@@ -657,12 +595,12 @@
                     <li><strong>완료</strong><span>항산화 시험<br>(활성산소 제거 능력, p &lt; 0.05)</span></li>
                 </ul>
             </div>
-            <div class="img"><img src="../skin/img/water_cream.webp" alt="인체적용시험을 완료한 마이리에 씨-캄 리바이브 크림" loading="lazy" width="1000" height="1250"></div>
+            <div class="img"><img src="../skin/img/water_cream.webp" alt="인체적용시험을 완료한 마이리에 씨-캄 리바이브 크림" loading="lazy" width="1000" height="820"></div>
         </div>
     </div>
 </section>
 
-<!-- 8. 1+1 이벤트 (메인진열 2) -->
+<!-- 7. 1+1 이벤트 (메인진열 2) -->
 <section class="section event" id="event">
     <div class="container">
         <div class="section-head">
@@ -671,7 +609,7 @@
                 <h2 class="h-section">1+1으로 더 가볍게, 세트로 더 완벽하게</h2>
                 <p class="sub">세럼 1+1 · 크림 1+1 · 세럼+크림 세트 — 아침저녁 두 달 루틴을 한 번에</p>
             </div>
-            <a href="list.html?cate_no=28" class="btn btn-line btn-sm more">전체 보기</a>
+            <a href="list_34.html" data-cat="3" class="btn btn-line btn-sm more">1+1 전체 보기</a>
         </div>
         <div class="xans-element- xans-product xans-product-listmain-2 ec-base-product" module="product_listmain_2">
             <!--
@@ -736,7 +674,7 @@
     </div>
 </section>
 
-<!-- 9. 고객 리뷰 — 상품 상세 후기 발췌. 리뷰 앱(크리마·브이리뷰·알파리뷰) 연동 시 이 블록을 위젯으로 교체 -->
+<!-- 8. 고객 리뷰 — 상품 상세 후기 발췌. 리뷰 앱(크리마·브이리뷰·알파리뷰) 연동 시 이 블록을 위젯으로 교체 -->
 <section class="section reviews" id="reviews">
     <div class="container">
         <div class="section-head">
@@ -765,48 +703,11 @@
     </div>
 </section>
 
-<!-- 10. 자주 묻는 질문 — layout.html 의 FAQPage JSON-LD 와 같은 문답 (질문형 H3) -->
-<section class="section faq" id="faq">
-    <div class="container">
-        <div class="section-head center">
-            <span class="eyebrow">FAQ</span>
-            <h2 class="h-section">마이리에에 대해 자주 묻는 질문은 무엇인가요?</h2>
-        </div>
-        <div class="faq-list">
-            <details open>
-                <summary><h3>마이리에 씨-캄 리바이브는 어떤 피부에 맞나요?</h3></summary>
-                <p>미백이 필요하지만 피부가 예민해 강한 미백 제품이 부담스러운 분을 기준으로 설계했습니다. 인체적용시험에서 피부자극도 0.00을 확인했고, 진정 성분(톱니모자반추출물·알로에·판테놀)을 기본 베이스로 두었습니다. 민감성·건성·복합성 피부 모두 아침저녁 데일리로 사용할 수 있습니다.</p>
-            </details>
-            <details>
-                <summary><h3>세럼과 크림은 어떻게 다르고, 어떤 순서로 바르나요?</h3></summary>
-                <p>세럼은 수분감이 가득한 워터리 젤 타입으로 유효 성분을 깊이 전달하고, 크림은 세라마이드 6종으로 수분을 잠그고 피부 장벽을 보호합니다. 세안 후 토너 다음에 세럼을 먼저 바르고, 마지막에 크림으로 마무리하면 됩니다. 두 가지를 함께 쓰면 진정·보습·장벽이 한 번에 완성됩니다.</p>
-            </details>
-            <details>
-                <summary><h3>톱니모자반추출물은 무엇인가요?</h3></summary>
-                <p>거친 파도와 강한 자외선, 염분이 가득한 바다에서 스스로를 지켜내는 해양 해조류에서 얻은 특허 성분입니다. 원료 실험에서 알부틴 대비 멜라닌 생성 억제 활성이 높게 나타났고, 항산화·항염 복합 작용을 하는 것으로 확인되어 마이리에 씨-캄 리바이브에 50,000ppm으로 담았습니다.</p>
-            </details>
-            <details>
-                <summary><h3>미백·주름 기능성 화장품인가요?</h3></summary>
-                <p>네. 미백 기능성 성분 나이아신아마이드와 주름 개선 기능성 성분 아데노신을 함유한 미백·주름 개선 기능성 화장품입니다. 여기에 항산화 성분 레스베라트롤과 3중 히알루론산, 세라마이드 6종을 더해 미백·주름·항산화·수분·진정을 한 병에 설계했습니다.</p>
-            </details>
-            <details>
-                <summary><h3>배송비와 배송 기간은 어떻게 되나요?</h3></summary>
-                <p>기본 배송비는 2,500원이며 50,000원 이상 구매 시 무료배송입니다. 평일 오후 결제 건까지 순차 출고되며 보통 1~3일 안에 받아보실 수 있습니다. 고객센터는 평일 10시부터 16시까지 운영합니다(주말·공휴일 휴무).</p>
-            </details>
-            <details>
-                <summary><h3>교환이나 반품은 어떻게 하나요?</h3></summary>
-                <p>상품 수령 후 7일 이내, 미개봉 상태라면 교환·반품이 가능합니다. 단순 변심의 경우 왕복 배송비가 부과되며, 상품 불량·오배송은 제이즈코스가 배송비를 부담합니다. 마이페이지 주문조회 또는 카카오톡 채널로 접수해 주세요.</p>
-            </details>
-        </div>
-        <div class="faq-more"><a href="system.html?p=/board/faq/list.html%3Fboard_no%3D3" class="btn btn-line">FAQ 전체 보기</a><a href="https://pf.kakao.com/_kdBxcn" target="_blank" rel="noopener" class="btn btn-ink">카카오톡 상담</a></div>
-    </div>
-</section>
-
-<!-- 11. 브랜드 스토리 -->
+<!-- 9. 브랜드 스토리 -->
 <section class="section story" id="story">
     <div class="container">
         <div class="wrap">
-            <div class="img"><img src="../skin/img/jars_blue.webp" alt="제이즈코스 마이리에 씨-캄 리바이브 크림" loading="lazy" width="1000" height="880"></div>
+            <div class="img"><img src="../skin/img/jars_blue.webp" alt="제이즈코스 마이리에 씨-캄 리바이브 크림" loading="lazy" width="1000" height="570"></div>
             <div class="txt">
                 <span class="eyebrow">Brand Story</span>
                 <h2 class="h-section">Be Soft, Be Glow.<br>부드럽게, 그리고 빛나게</h2>
@@ -821,7 +722,7 @@
     </div>
 </section>
 
-<!-- 12. 인스타그램 -->
+<!-- 10. 인스타그램 -->
 <section class="section insta" id="insta">
     <div class="container">
         <div class="section-head center">
@@ -871,7 +772,7 @@
             </ul>
             <ul>
                 <li><a href="system.html?p=/board/free/list.html%3Fboard_no%3D1">공지사항</a></li>
-                <li><a href="system.html?p=/board/faq/list.html%3Fboard_no%3D3">자주묻는질문</a></li>
+                <li><a href="faq.html">자주묻는질문</a></li>
                 <li><a href="system.html?p=/board/review/list.html%3Fboard_no%3D4">구매후기</a></li>
                 <li><a href="system.html?p=/board/product/list.html%3Fboard_no%3D6">구매문의</a></li>
                 <li><a href="system.html?p=/myshop/order/list.html">주문조회</a></li>
