@@ -66,7 +66,8 @@
     h.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; stop(); }, { passive: true });
     h.addEventListener('touchend', function (e) { var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) go(dx < 0 ? idx + 1 : idx - 1); start(); });
     document.addEventListener('visibilitychange', function () { document.hidden ? stop() : restart(); });
-    go(0); start();
+    var initSlide = parseInt((location.search.match(/[?&]slide=(\d)/) || [])[1] || '1', 10) - 1; /* ?slide=N : 캡처·검수용 */
+    go(initSlide); start();
   }
 
   /* ---------- 가로 트랙 (리뷰) 좌우 버튼 + 자동 ---------- */
@@ -112,6 +113,8 @@
       var c = num(($('.custom', p) || {}).textContent), s = num(($('.sale', p) || {}).textContent), r = $('.rate', p);
       if (r && c > s && s > 0) r.textContent = Math.round((1 - s / c) * 100) + '%';
       var sm = $('.summary', p); if (sm && /요약설명이 입력됩니다/.test(sm.textContent)) sm.textContent = '';
+      var s2 = $('.thumb-slides .s2', p);
+      if (s2) { if (!s2.getAttribute('src')) p.classList.add('single'); s2.addEventListener('error', function () { p.classList.add('single'); }); }
     });
     $$('.prdList.ranked > li').forEach(function (li, i) { var rk = $('.rank', li); if (rk) rk.textContent = i + 1; });
   }
