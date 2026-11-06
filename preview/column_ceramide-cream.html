@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<!-- =====================================================================
+     제이즈코스 (jayscos.com) 카페24 스킨 — 공통 레이아웃 (layout/basic/layout.html)
+     SEO/AEO 기준(메세지AI 진단 32항목) 체크리스트:
+       타이틀 15~60자 1개 · 메타 디스크립션 · canonical · OG 3개 이상 · preconnect · 파비콘 · lang · DOCTYPE
+       JSON-LD: 공통 @graph(Organization·Brand·WebSite)는 여기, 페이지별(WebPage·Breadcrumb·ItemList·Product / FAQPage)은 index.html·faq.html 본문
+       H1은 페이지당 1개 (메인은 index.html 히어로 첫 슬라이드, 상세는 상품명) — 헤더 로고는 h1 금지
+     ※ 카페24 관리자 > 쇼핑몰 설정 > 검색엔진 최적화(SEO)에서 타이틀/메타/OG 자동 삽입을 켜 두었다면 중복될 수 있음
+        → 적용 후 소스보기에서 <title> 이 2개면 관리자 SEO 설정의 '타이틀 노출'을 끄거나 아래 줄을 삭제
+     ===================================================================== -->
+<title>제이즈코스 | 마이리에 씨-캄 리바이브 세럼·크림 공식몰</title>
+<meta name="description" content="제이즈코스 공식몰. 특허 톱니모자반추출물과 나노에멀전 기술로 설계한 마이리에 씨-캄 리바이브 세럼·크림. 미백·주름 기능성, 피부자극 0.00, 진정 24%·보습 129% 인체적용시험 완료. 민감 피부를 위한 쌩얼 세럼과 크림.">
+<meta name="keywords" content="제이즈코스,마이리에,Myrie,씨캄 리바이브,쌩얼세럼,쌩얼크림,톱니모자반추출물,미백 세럼,진정 크림,민감피부 화장품,김해 화장품">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://jayscos.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="제이즈코스">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://jayscos.com/">
+<meta property="og:title" content="제이즈코스 | 마이리에 씨-캄 리바이브 세럼·크림 공식몰">
+<meta property="og:description" content="특허 톱니모자반추출물과 나노에멀전 기술로 설계한 민감 피부용 미백·주름 기능성 세럼·크림. 피부자극 0.00, 인체적용시험 완료.">
+<meta property="og:image" content="https://jayscos.com/web/upload/jayscos/img/og_main.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="제이즈코스 | 마이리에 씨-캄 리바이브 세럼·크림 공식몰">
+<meta name="twitter:description" content="특허 톱니모자반추출물과 나노에멀전 기술로 설계한 민감 피부용 미백·주름 기능성 세럼·크림.">
+<meta name="twitter:image" content="https://jayscos.com/web/upload/jayscos/img/og_main.jpg">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://ecimg.cafe24img.com">
+<link rel="dns-prefetch" href="https://img.echosting.cafe24.com">
+<link rel="preload" href="../skin/img/hero_serum.webp" as="image" type="image/webp">
+<!-- 서체: Pretendard (본문·헤드라인 공통, ExtraBold 헤드라인) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<!-- ?shot=1 : 캡처용(자동 슬라이드·등장 애니메이션 정지) -->
+<script>(function(){if(/[?&]shot=1/.test(location.search))document.documentElement.setAttribute('data-shot','1');})();</script>
+<link rel="stylesheet" href="../skin/css/jayscos.css?v=202611061351">
+<script src="../skin/js/jayscos.js?v=202611061351" defer></script>
+<!-- 구조화 데이터: 사이트 공통 엔티티. 상품 상세의 Product 스키마는 product/detail.html 에 별도 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://jayscos.com/#organization",
+      "name": "제이즈코스",
+      "alternateName": ["JAYSCOS", "(주)제이즈코스", "마이리에", "Myrie"],
+      "legalName": "주식회사 제이즈코스",
+      "url": "https://jayscos.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://jayscos.com/#logo",
+        "url": "https://jayscos.com/web/upload/jayscos/img/logo.png",
+        "contentUrl": "https://jayscos.com/web/upload/jayscos/img/logo.png",
+        "caption": "제이즈코스 JAYSCOS 로고"
+      },
+      "image": { "@id": "https://jayscos.com/#logo" },
+      "slogan": "Be Soft, Be Glow",
+      "description": "경남 김해의 화장품 브랜드 제이즈코스. 특허 톱니모자반추출물과 나노에멀전 기술로 민감 피부를 위한 미백·주름 기능성 세럼과 크림(마이리에 씨-캄 리바이브)을 만듭니다.",
+      "foundingLocation": { "@type": "Place", "name": "경상남도 김해시" },
+      "brand": { "@id": "https://jayscos.com/#brand" },
+      "telephone": "+82-507-1474-0974",
+      "email": "jayscos25@naver.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "주촌면 골든루트로 80-16 김해중소기업비즈니스센터 3층 309호",
+        "addressLocality": "김해시",
+        "addressRegion": "경상남도",
+        "postalCode": "50969",
+        "addressCountry": "KR"
+      },
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+82-507-1474-0974",
+        "email": "jayscos25@naver.com",
+        "contactType": "customer service",
+        "areaServed": "KR",
+        "availableLanguage": "Korean",
+        "hoursAvailable": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "16:00" }
+      }],
+      "sameAs": [
+        "https://www.instagram.com/jayscos25/",
+        "https://blog.naver.com/jayscos",
+        "https://pf.kakao.com/_kdBxcn"
+      ]
+    },
+    {
+      "@type": "Brand",
+      "@id": "https://jayscos.com/#brand",
+      "name": "마이리에 (Myrie)",
+      "alternateName": ["Myrié", "마이리에 씨-캄 리바이브", "Myrie Sea-Calm Revive"],
+      "slogan": "Be Soft, Be Glow",
+      "description": "바다의 고요함에서 영감을 받은 제이즈코스의 스킨케어 브랜드. 특허 톱니모자반추출물 50,000ppm과 20nm 나노에멀전 기술로 진정·보습·장벽·미백·주름까지 한 번에 설계한 씨-캄 리바이브 라인.",
+      "logo": { "@id": "https://jayscos.com/#logo" },
+      "url": "https://jayscos.com/"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://jayscos.com/#website",
+      "url": "https://jayscos.com/",
+      "name": "제이즈코스 공식몰",
+      "alternateName": "JAYSCOS Official Store",
+      "description": "마이리에 씨-캄 리바이브 세럼·크림 공식 온라인몰",
+      "inLanguage": "ko-KR",
+      "publisher": { "@id": "https://jayscos.com/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://jayscos.com/product/search.html?keyword={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}
+</script>
+<style>.xans-layout-statelogon{display:none !important}</style></head>
+<body>
+<div id="wrap">
+    <!-- =====================================================================
+     헤더 (layout/basic/header.html) — 레퍼런스 melable.co.kr 구조
+     최상단 공지 바 → 헤더(로고 / PC GNB / 아이콘: 검색·회원·장바구니) → 검색 레이어 → 모바일 드로어
+     - 로고는 h1 이 아님(페이지당 H1 1개 원칙 — 메인 H1은 index.html 히어로)
+     - 상품 분류는 카페24 Layout_category 모듈이 자동 출력 (관리자 > 상품분류 관리)
+     ===================================================================== -->
+<div class="topbar">
+    <a href="system.html?p=/member/join.html"><em>JOIN</em>신규 회원가입 시 적립금 2,000원</a>
+    <span class="dot">·</span>
+    <span class="pc-only-inline">5만원 이상 무료배송</span>
+    <span class="dot pc-only-inline">·</span>
+    <a href="list_34.html" class="pc-only-inline" data-cat="3">1+1 이벤트 진행 중</a>
+</div>
+
+<header class="header" id="header">
+    <div class="container inner">
+        <div class="left">
+            <button type="button" class="iconbtn menu" data-open-drawer aria-label="메뉴 열기">
+                <svg class="ico" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+            <div class="logo xans-element- xans-layout xans-layout-logotop" module="Layout_LogoTop">
+                <a href="index.html" aria-label="제이즈코스 홈">
+                    <img src="../skin/img/logo.png" alt="제이즈코스 JAYSCOS" width="150" height="116">
+                </a>
+            </div>
+        </div>
+
+        <nav class="gnb-wrap" aria-label="주 메뉴">
+            <ul class="gnb">
+                <li><a href="list.html?cate_no=28" class="all">전체상품</a></li>
+                <!-- 분류 메뉴: 관리자 > 상품분류 관리의 1단계 분류가 순서대로 자동 출력 -->
+                <li class="xans-element- xans-layout xans-layout-category" module="Layout_category" style="display:contents"><a href="list_31.html" class="xans-record-">세럼</a>
+<a href="list_32.html" class="xans-record-">크림</a>
+<a href="list_33.html" class="xans-record-">세트</a>
+<a href="list_34.html" class="xans-record-">1+1</a></li>
+                <li><a href="brand.html">브랜드</a></li>
+                <li><a href="system.html?p=/board/review/list.html%3Fboard_no%3D4">리뷰</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+
+        <div class="right">
+            <button type="button" class="iconbtn" data-toggle-search aria-label="검색">
+                <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            </button>
+            <div class="xans-element- xans-layout xans-layout-statelogoff" module="Layout_statelogoff" style="display:inline-flex">
+                <a href="system.html?p=/member/login.html" class="iconbtn" aria-label="로그인">
+                    <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                </a>
+            </div>
+            <div class="xans-element- xans-layout xans-layout-statelogon" module="Layout_statelogon" style="display:inline-flex">
+                <a href="system.html?p=/myshop/index.html" class="iconbtn" aria-label="마이페이지">
+                    <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                </a>
+            </div>
+            <div class="xans-element- xans-layout xans-layout-orderbasketcount" module="Layout_orderbasketcount">
+                <a href="system.html?p=/order/basket.html" class="iconbtn" aria-label="장바구니">
+                    <svg class="ico" viewBox="0 0 24 24"><path d="M6 7h12l-1 12H7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-layer" id="searchLayer">
+        <form action="system.html?p=/product/search.html" method="get">
+            <input type="text" name="keyword" placeholder="찾는 제품이 있나요? 예) 쌩얼세럼" aria-label="검색어">
+            <button type="submit" class="btn btn-ink">검색</button>
+        </form>
+    </div>
+</header>
+
+<!-- 모바일 드로어 -->
+<div class="drawer" id="drawer" aria-hidden="true">
+    <div class="dim" data-close-drawer></div>
+    <div class="panel">
+        <div class="head">
+            <strong>메뉴</strong>
+            <button type="button" class="iconbtn close" data-close-drawer aria-label="닫기">
+                <svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+            </button>
+        </div>
+        <div class="member">
+            <div class="xans-element- xans-layout xans-layout-statelogoff" module="Layout_statelogoff" style="display:flex;gap:8px;width:100%">
+                <a href="system.html?p=/member/login.html" class="btn btn-ink btn-sm" style="flex:1">로그인</a>
+                <a href="system.html?p=/member/join.html" class="btn btn-line btn-sm" style="flex:1">회원가입</a>
+            </div>
+            <div class="xans-element- xans-layout xans-layout-statelogon" module="Layout_statelogon" style="display:flex;gap:8px;width:100%">
+                <a href="system.html?p=/myshop/index.html" class="btn btn-ink btn-sm" style="flex:1">마이페이지</a>
+                <a href="system.html?p=/member/logout.html" class="btn btn-line btn-sm" style="flex:1">로그아웃</a>
+            </div>
+        </div>
+        <ul class="nav">
+            <li>
+                <strong>SHOP</strong>
+                <div class="sub">
+                    <a href="list.html?cate_no=28">전체 상품</a>
+                    <div class="xans-element- xans-layout xans-layout-category" module="Layout_category">
+                        <a href="list_31.html" class="xans-record-">세럼</a>
+<a href="list_32.html" class="xans-record-">크림</a>
+<a href="list_33.html" class="xans-record-">세트</a>
+<a href="list_34.html" class="xans-record-">1+1</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="index.html#best">베스트</a></li>
+            <li><a href="brand.html">브랜드 이야기 · 칼럼</a></li>
+            <li><a href="system.html?p=/board/review/list.html%3Fboard_no%3D4">리뷰</a></li>
+            <li><a href="faq.html">자주 묻는 질문</a></li>
+            <li><a href="system.html?p=/order/basket.html">장바구니</a></li>
+            <li><a href="system.html?p=/myshop/order/list.html">주문조회</a></li>
+        </ul>
+        <p class="foot">고객센터 0507-1474-0974<br>평일 10:00 ~ 16:00 · 주말/공휴일 휴무</p>
+    </div>
+</div>
+
+    <div id="container">
+        <div id="contents">
+            
+<!-- 뷰티 칼럼: ceramide-cream (columns/columns.json → columns/build.py 생성, 직접 수정 금지) -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BlogPosting",
+   "@id": "https://jayscos.com/column/ceramide-cream.html#article",
+   "headline": "세라마이드 크림, 왜 피부 장벽에 좋다고 할까요?",
+   "description": "세라마이드는 각질층 지질의 절반을 차지하는 피부 자체 성분입니다. 세라마이드 크림이 하는 일, 종류별 차이, 효과를 보는 바르는 법을 정리했습니다.",
+   "keywords": "세라마이드 크림 효과",
+   "image": "https://jayscos.com/web/upload/jayscos/img/why_blend.webp",
+   "datePublished": "2026-11-06",
+   "dateModified": "2026-11-06",
+   "inLanguage": "ko-KR",
+   "author": {
+    "@id": "https://jayscos.com/#organization"
+   },
+   "publisher": {
+    "@id": "https://jayscos.com/#organization"
+   },
+   "mainEntityOfPage": {
+    "@id": "https://jayscos.com/column/ceramide-cream.html#webpage"
+   },
+   "about": {
+    "@id": "https://jayscos.com/#brand"
+   },
+   "articleSection": "뷰티 칼럼"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://jayscos.com/column/ceramide-cream.html#webpage",
+   "url": "https://jayscos.com/column/ceramide-cream.html",
+   "name": "세라마이드 크림, 왜 피부 장벽에 좋다고 할까요?",
+   "isPartOf": {
+    "@id": "https://jayscos.com/#website"
+   },
+   "breadcrumb": {
+    "@id": "https://jayscos.com/column/ceramide-cream.html#breadcrumb"
+   },
+   "inLanguage": "ko-KR"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://jayscos.com/column/ceramide-cream.html#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "홈",
+     "item": "https://jayscos.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "브랜드 · 뷰티 칼럼",
+     "item": "https://jayscos.com/brand.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "세라마이드 크림, 왜 피부 장벽에 좋다고 할까요?",
+     "item": "https://jayscos.com/column/ceramide-cream.html"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://jayscos.com/column/ceramide-cream.html#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "지성 피부도 세라마이드 크림이 필요한가요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "네. 지성 피부도 장벽이 약하면 피지가 더 늘어납니다. 유분이 적은 제형을 얇게 바르면 번들거림 없이 장벽을 보강할 수 있습니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "세라마이드 크림은 아침에도 바르나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "아침에도 세럼 뒤에 얇게 바르고 자외선 차단제로 마무리하는 것이 좋습니다. 낮 동안의 건조와 자극에서 피부를 지켜 줍니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "세라마이드 함량이 높을수록 좋은가요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "함량보다 여러 종류가 균형 있게 들어 있고 수분 성분과 같이 있는지가 체감에 더 중요합니다."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script>document.title = "세라마이드 크림, 왜 피부 장벽에 좋다고 할까요? | 제이즈코스 뷰티 칼럼";</script>
+<article class="column-page">
+    <div class="container narrow">
+        <ul class="crumb">
+            <li><a href="index.html">홈</a></li>
+            <li><a href="brand.html">브랜드 · 뷰티 칼럼</a></li>
+            <li>세라마이드 크림 효과</li>
+        </ul>
+        <header class="col-head">
+            <span class="eyebrow">Beauty Column · 세라마이드 크림 효과</span>
+            <h1>세라마이드 크림, 왜 피부 장벽에 좋다고 할까요?</h1>
+            <p class="col-meta">제이즈코스 마이리에 · 2026-11-06</p>
+        </header>
+        <div class="col-body">
+<div class="col-summary"><strong>핵심 요약</strong><ul><li>세라마이드는 각질세포 사이를 메우는 지질로, 부족하면 수분이 새고 자극이 들어옵니다.</li><li>세라마이드 크림은 이 빈틈을 채워 수분 증발을 막고 외부 자극을 덜 느끼게 하는 &#x27;장벽 보강&#x27; 역할을 합니다.</li><li>엔피·엔에스·에이피 등 여러 종류를 함께 쓰면 피부 지질 구성과 비슷해져 더 자연스럽게 작용합니다.</li></ul></div>
+<figure class="col-figure"><img src="../skin/img/why_blend.webp" alt="세라마이드 크림 효과 - 세라마이드 크림, 왜 피부 장벽에 좋다고 할까요?" loading="lazy" width="1024" height="1024"></figure>
+<h2>세라마이드는 피부에서 어떤 일을 하나요?</h2>
+<p>각질층은 벽돌(각질세포)과 시멘트(세포 간 지질)로 이뤄진 벽에 비유됩니다. 이 시멘트의 약 50%가 세라마이드입니다. 세라마이드가 충분하면 벽돌 사이가 촘촘해 수분이 안에 머물고 자극 물질은 들어오지 못합니다.</p>
+<p>나이가 들거나 잦은 세안·계절 변화로 세라마이드가 줄면 벽돌 사이에 틈이 생깁니다. 수분이 새어 나가 건조해지고, 틈으로 자극이 들어와 따가움과 붉어짐이 잦아집니다. 건조와 민감이 같이 오는 이유가 여기에 있습니다.</p>
+<h2>세라마이드 크림은 어떻게 고르나요?</h2>
+<p>세라마이드는 한 종류가 아닙니다. 세라마이드엔피(NP), 엔에스(NS), 에이피(AP), 이오피(EOP), 에이에스(AS) 등이 각각 다른 자리에서 일하므로 여러 종류가 함께 든 제품이 피부 본래 구성과 가깝습니다.</p>
+<p>세라마이드만 있는 것보다 콜레스테롤·지방산이 비슷한 비율로 함께 있고, 히알루론산이나 판테놀처럼 수분을 끌어오는 성분이 더해진 제품이 체감이 빠릅니다. 마이리에 씨-캄 리바이브 크림은 세라마이드 6종에 3중 히알루론산과 판테놀을 더해 인체적용시험에서 일시적 보습 129% 증가를 확인했습니다.</p>
+<h2>세라마이드 크림, 효과를 보려면 어떻게 바르나요?</h2>
+<p>세안 후 수분이 남아 있을 때 세럼을 먼저 바르고, 마지막 단계에 세라마이드 크림으로 덮습니다. 크림은 손바닥에서 살짝 녹인 뒤 문지르지 말고 눌러서 흡수시키면 자극이 적습니다.</p>
+<p>건조한 계절에는 저녁에 조금 더 두껍게 발라 밤사이 수분 증발을 막는 &#x27;슬리핑 팩&#x27;처럼 쓰는 것도 좋습니다. 지성 피부는 쌀알 크기만 얇게 발라도 장벽 보강 효과는 충분합니다.</p>
+<div class="col-tips"><h3>세라마이드 크림이 필요한 신호</h3><ul><li>세안 후 금세 당기고 각질이 들뜬다</li><li>작은 자극에도 붉어지고 따갑다</li><li>수분 제품을 발라도 오래 못 간다</li><li>환절기마다 피부가 거칠어진다</li><li>미백·주름 제품을 쓰면 뒤집어진다</li></ul></div>
+<a class="col-product" href="detail_13.html"><img src="../skin/img/prd_cream.webp" alt="마이리에 씨-캄 리바이브 크림 50ml" loading="lazy" width="120" height="120"><span class="t"><em>관련 제품</em><strong>마이리에 씨-캄 리바이브 크림 50ml</strong><b>33,900원</b></span><span class="go">제품 보기</span></a>
+<h2>자주 묻는 질문</h2><div class="col-faq"><details><summary><h3>지성 피부도 세라마이드 크림이 필요한가요?</h3></summary><p>네. 지성 피부도 장벽이 약하면 피지가 더 늘어납니다. 유분이 적은 제형을 얇게 바르면 번들거림 없이 장벽을 보강할 수 있습니다.</p></details><details><summary><h3>세라마이드 크림은 아침에도 바르나요?</h3></summary><p>아침에도 세럼 뒤에 얇게 바르고 자외선 차단제로 마무리하는 것이 좋습니다. 낮 동안의 건조와 자극에서 피부를 지켜 줍니다.</p></details><details><summary><h3>세라마이드 함량이 높을수록 좋은가요?</h3></summary><p>함량보다 여러 종류가 균형 있게 들어 있고 수분 성분과 같이 있는지가 체감에 더 중요합니다.</p></details></div>
+<p class="col-note">* 본 칼럼은 일반적인 피부 관리 정보이며 개인의 피부 상태에 따라 다를 수 있습니다. 제품의 기능성(미백·주름 개선)은 식품의약품안전처 고시 범위 내의 표현이며, 원료 실험 결과는 완제품 사용 효과와 다를 수 있습니다.</p>
+        </div>
+        <nav class="col-nav" aria-label="다른 칼럼">
+            <a href="column_mingam-serum.html" class="prev"><span>이전 칼럼</span><strong>민감성 피부 세럼, 뭘 보고 골라야 뒤집어지지 않을까요?</strong></a>
+            <a href="column_serum-cream-order.html" class="next"><span>다음 칼럼</span><strong>세럼과 크림, 어떤 순서로 발라야 효과가 제대로 날까요?</strong></a>
+        </nav>
+        <div class="col-more"><a href="brand.html#columns" class="btn btn-line">뷰티 칼럼 전체 보기</a><a href="list.html?cate_no=28" class="btn btn-ink">제품 보러가기</a></div>
+    </div>
+</article>
+
+        </div>
+    </div>
+    <!-- =====================================================================
+     푸터 (layout/basic/footer.html) — melable 식 다크 푸터
+     좌: 고객센터 큰 번호 + 운영시간 + 교환·반품 주소 / 중: 링크 2열 / 우: 사업자 정보(Layout_footer 모듈)
+     ===================================================================== -->
+<footer class="footer">
+    <div class="container cols">
+        <div class="cs">
+            <h2 class="ttl">고객센터 <a href="tel:0507-1474-0974">0507-1474-0974</a></h2>
+            <p>운영시간 : 평일 AM 10:00 - PM 16:00 (토, 일 공휴일 휴무)</p>
+            <p>이메일 : <a href="mailto:jayscos25@naver.com">jayscos25@naver.com</a> (CS · 온라인 제휴 문의)</p>
+            <h3 class="ttl">교환 &amp; 반품주소</h3>
+            <p>경남 김해시 주촌면 골든루트로 80-16 김해중소기업비즈니스센터 3층 309호 (주)제이즈코스</p>
+            <div class="sns">
+                <a href="https://www.instagram.com/jayscos25/" target="_blank" rel="noopener" aria-label="인스타그램"><svg class="ico" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg></a>
+                <a href="https://blog.naver.com/jayscos" target="_blank" rel="noopener" aria-label="네이버 블로그"><svg class="ico" viewBox="0 0 24 24"><path d="M4 7.5A3.5 3.5 0 0 1 7.5 4h9A3.5 3.5 0 0 1 20 7.5v7a3.5 3.5 0 0 1-3.5 3.5H12l-3.6 3.2c-.5.4-1.2.1-1.2-.6V18A3.5 3.5 0 0 1 4 14.5z"/><path d="M9.5 9h2.6c1.2 0 1.9.6 1.9 1.4 0 .6-.3 1-.8 1.2.7.2 1.1.7 1.1 1.4 0 1-.8 1.7-2.1 1.7H9.5z"/></svg></a>
+                <a href="https://pf.kakao.com/_kdBxcn" target="_blank" rel="noopener" aria-label="카카오톡 채널"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3.5C6.8 3.5 2.5 6.8 2.5 10.9c0 2.6 1.7 4.9 4.3 6.2l-1 3.8c-.1.3.3.6.6.4l4.4-2.9c.4 0 .8.1 1.2.1 5.2 0 9.5-3.3 9.5-7.6S17.2 3.5 12 3.5z"/></svg></a>
+            </div>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="brand.html">브랜드 스토리 · 뷰티 칼럼</a></li>
+                <li><a href="system.html?p=/member/agreement.html">이용약관</a></li>
+                <li><a href="system.html?p=/member/privacy.html"><strong>개인정보처리방침</strong></a></li>
+                <li><a href="system.html?p=/shopinfo/guide.html">이용안내</a></li>
+                <li><a href="system.html?p=/shopinfo/company.html">회사소개</a></li>
+            </ul>
+            <ul>
+                <li><a href="system.html?p=/board/free/list.html%3Fboard_no%3D1">공지사항</a></li>
+                <li><a href="faq.html">자주묻는질문</a></li>
+                <li><a href="system.html?p=/board/review/list.html%3Fboard_no%3D4">구매후기</a></li>
+                <li><a href="system.html?p=/board/product/list.html%3Fboard_no%3D6">구매문의</a></li>
+                <li><a href="system.html?p=/myshop/order/list.html">주문조회</a></li>
+            </ul>
+        </div>
+        <div class="info xans-element- xans-layout xans-layout-footer" module="Layout_footer">
+            <h3 class="ttl">Information</h3>
+            <p>상호. (주)제이즈코스</p>
+            <p>CEO. 허현진</p>
+            <p>사업자등록번호. 885-88-03503</p>
+            <p>통신판매업신고번호. 제 2025-경남김해-0689호</p>
+            <p>개인정보관리책임자. 허현진</p>
+            <p>이메일. jayscos25@naver.com</p>
+            <p>주소. 경남 김해시 주촌면 골든루트로 80-16 김해중소기업비즈니스센터 3층 309호</p>
+            <p class="copy">© 2026 제이즈코스. ALL RIGHTS RESERVED.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- 따라다니는 채널 버튼 (카카오톡 채널 · 맨 위로) -->
+<div class="float-sns" aria-label="제이즈코스 채널">
+    <a href="https://pf.kakao.com/_kdBxcn" target="_blank" rel="noopener" class="kakao" aria-label="카카오톡 채널 상담">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5C6.8 3.5 2.5 6.8 2.5 10.9c0 2.6 1.7 4.9 4.3 6.2l-1 3.8c-.1.3.3.6.6.4l4.4-2.9c.4 0 .8.1 1.2.1 5.2 0 9.5-3.3 9.5-7.6S17.2 3.5 12 3.5z" fill="currentColor"/></svg>
+    </a>
+    <button type="button" class="top" data-scroll-top aria-label="맨 위로">
+        <svg class="ico" viewBox="0 0 24 24"><path d="m6 14 6-6 6 6"/></svg>
+    </button>
+</div>
+
+</div>
+</body>
+</html>
