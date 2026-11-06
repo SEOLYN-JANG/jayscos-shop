@@ -26,6 +26,7 @@
     if (cats.length) $$('[data-cat]').forEach(function (a) { var c = cats[parseInt(a.dataset.cat, 10)]; if (c) a.setAttribute('href', c.getAttribute('href')); });
     /* 스크롤 시 헤더 그림자 + 맨 위로 버튼 */
     var hd = $('#header'), top = $('[data-scroll-top]');
+    if ($('.main-page')) document.body.classList.add('home'); /* 메인: 투명 헤더 오버레이 */
     var onScroll = function () { var y = window.pageYOffset; if (hd) hd.classList.toggle('scrolled', y > 10); if (top) top.classList.toggle('show', y > 600); };
     window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
     top && top.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
