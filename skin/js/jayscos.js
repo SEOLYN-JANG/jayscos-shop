@@ -107,6 +107,18 @@
     });
   }
 
+  /* ---------- 리뷰 탭 ---------- */
+  function rvTabs() {
+    var root = $('.reviews'); if (!root) return;
+    var btns = $$('.rv-tabs button', root), panels = $$('.rv-panel', root);
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        btns.forEach(function (x) { x.classList.toggle('on', x === b); });
+        panels.forEach(function (p) { p.classList.toggle('on', p.dataset.panel === b.dataset.tab); });
+      });
+    });
+  }
+
   /* ---------- 상품 카드: 할인율 + 베스트 순위 배지 ---------- */
   function cards() {
     $$('.prd').forEach(function (p) {
@@ -245,7 +257,7 @@
     $$('.section').forEach(function (el) { el.classList.add('reveal'); io.observe(el); });
   }
 
-  function init() { header(); heroSlider(); tracks(); concernTabs(); cards(); detail(); reveal(); }
+  function init() { header(); heroSlider(); tracks(); concernTabs(); rvTabs(); cards(); detail(); reveal(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
   window.JAYSCOS = { init: init };
 })();

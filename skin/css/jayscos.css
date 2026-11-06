@@ -135,13 +135,26 @@ html[data-shot] #wrap{min-height:0}
 .footer .info p{line-height:1.8;color:#aab1bc}
 .footer .info .copy{margin-top:14px;font-size:12px;color:#7f8793;letter-spacing:.04em}
 @media(min-width:768px){.footer .cols{grid-template-columns:1.4fr 1fr 1.2fr;gap:40px;padding-top:56px;padding-bottom:52px}}
-.float-sns{position:fixed;right:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:95;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
-.float-sns a,.float-sns button{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(15,27,51,.2);transition:transform .15s,opacity .2s}
+.float-sns{position:fixed;right:12px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:95;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.float-sns a,.float-sns button{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(15,27,51,.2);transition:transform .15s,opacity .2s,width .2s}
 .float-sns a:hover,.float-sns button:hover{transform:translateY(-2px)}
+.float-sns a svg{width:22px;height:22px;display:block;flex:none}
+.float-sns a .ico{stroke-width:1.8}
+.float-sns a span{display:none}
 .float-sns .kakao{background:#fee500;color:#3c1e1e}
 .float-sns .kakao svg{width:26px;height:26px}
-.float-sns .top{background:#fff;color:var(--ink);border:1px solid var(--line);opacity:0;pointer-events:none;width:44px;height:44px}
+.float-sns .insta{background:#e1306c;color:#fff}
+.float-sns .store{background:#03c75a;color:#fff}
+.float-sns .top{background:#fff;color:var(--ink);border:1px solid var(--line);opacity:0;pointer-events:none;width:42px;height:42px}
 .float-sns .top.show{opacity:1;pointer-events:auto}
+@media(min-width:1024px){
+  .float-sns{right:0;top:50%;bottom:auto !important;transform:translateY(-50%);gap:6px;align-items:flex-end}
+  .float-sns a{width:60px;height:54px;border-radius:14px 0 0 14px;flex-direction:row;justify-content:flex-start;padding-left:19px;gap:10px;overflow:hidden}
+  .float-sns a span{display:block;font-size:13px;font-weight:700;letter-spacing:-.02em;line-height:1;white-space:nowrap;opacity:0;transition:opacity .15s}
+  .float-sns a:hover{width:150px;transform:none}
+  .float-sns a:hover span{opacity:1}
+  .float-sns .top{position:fixed;right:16px;bottom:20px;top:auto;transform:none;width:44px;height:44px;border-radius:50%}
+}
 body.has-sticky .float-sns{bottom:calc(92px + env(safe-area-inset-bottom))}
 
 /* ---------- 5. Hero (기존 몰 배너 원본 배경 + HTML 카피) ----------
@@ -349,6 +362,30 @@ html[data-shot] .reveal{opacity:1;transform:none;transition:none}
 .rv .meta{display:flex;align-items:center;justify-content:space-between;font-size:13px;padding-top:12px;border-top:1px solid var(--line-2)}
 .rv .meta strong{font-weight:700}
 .rv .meta span{color:var(--blue);font-weight:700;background:var(--sea-2);padding:3px 9px;border-radius:999px;font-size:12px}
+/* 리뷰 탭 (쇼핑몰 / 네이버 블로그 / 인스타그램) */
+.rv-tabs{display:flex;gap:8px;margin-bottom:18px;overflow-x:auto;scrollbar-width:none}
+.rv-tabs::-webkit-scrollbar{display:none}
+.rv-tabs button{flex:none;display:inline-flex;align-items:center;gap:7px;height:42px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font-weight:700;font-size:14px;color:var(--ink-2)}
+.rv-tabs button .ico{width:17px;height:17px}
+.rv-tabs button small{font-size:11px;font-weight:800;background:var(--sea);color:var(--blue-2);padding:2px 7px;border-radius:999px}
+.rv-tabs button.on,.rv-tabs button:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.rv-tabs button.on small{background:rgba(255,255,255,.2);color:#fff}
+.rv-panel{display:none}
+.rv-panel.on{display:block;animation:fadeUp .3s ease}
+.rv-note{margin-top:14px;font-size:13px;color:var(--muted)}
+.rv-note a{color:var(--blue);font-weight:700}
+.rv.rv-link{padding:0;overflow:hidden}
+.rv.rv-link a{display:block;height:100%}
+.rv.rv-link .img{aspect-ratio:1/1;overflow:hidden;background:var(--sea-2)}
+.rv.rv-link .img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.rv.rv-link a:hover img{transform:scale(1.04)}
+.rv.rv-link .txt{padding:14px 16px 16px}
+.rv.rv-link .ch{display:inline-block;font-size:11px;font-weight:800;padding:3px 8px;border-radius:999px;margin-bottom:8px}
+.rv.rv-link .ch.blog{background:#e6f8ee;color:#03a04a}
+.rv.rv-link .ch.insta{background:#fde8ef;color:#c2185b}
+.rv.rv-link strong{display:block;font-size:14px;font-weight:700;line-height:1.45;letter-spacing:-.02em;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rv.rv-link em{display:block;font-style:normal;font-size:12.5px;color:var(--muted);margin-top:6px}
+@media(min-width:1024px){.rv.rv-link{width:calc((100% - 56px) / 5)}}
 @media(min-width:1024px){.rv{width:calc((100% - 42px) / 4)}}
 
 /* ---------- 15. FAQ ---------- */

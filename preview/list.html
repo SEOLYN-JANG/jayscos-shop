@@ -38,8 +38,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <!-- ?shot=1 : 캡처용(자동 슬라이드·등장 애니메이션 정지) -->
 <script>(function(){if(/[?&]shot=1/.test(location.search))document.documentElement.setAttribute('data-shot','1');})();</script>
-<link rel="stylesheet" href="../skin/css/jayscos.css?v=202611061351">
-<script src="../skin/js/jayscos.js?v=202611061351" defer></script>
+<link rel="stylesheet" href="../skin/css/jayscos.css?v=202611061409">
+<script src="../skin/js/jayscos.js?v=202611061409" defer></script>
 <!-- 구조화 데이터: 사이트 공통 엔티티. 상품 상세의 Product 스키마는 product/detail.html 에 별도 -->
 <script type="application/ld+json">
 {
@@ -430,10 +430,20 @@
     </div>
 </footer>
 
-<!-- 따라다니는 채널 버튼 (카카오톡 채널 · 맨 위로) -->
+<!-- 따라다니는 채널 위젯: 카카오톡 채널 · 인스타그램 · 네이버 스마트스토어 (+ 맨 위로). PC 오른쪽 가장자리 탭(호버 시 이름 펼침), 모바일 원형.
+     ※ 스마트스토어 주소는 업체 확인 후 교체 (현재 자리표시자) -->
 <div class="float-sns" aria-label="제이즈코스 채널">
     <a href="https://pf.kakao.com/_kdBxcn" target="_blank" rel="noopener" class="kakao" aria-label="카카오톡 채널 상담">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5C6.8 3.5 2.5 6.8 2.5 10.9c0 2.6 1.7 4.9 4.3 6.2l-1 3.8c-.1.3.3.6.6.4l4.4-2.9c.4 0 .8.1 1.2.1 5.2 0 9.5-3.3 9.5-7.6S17.2 3.5 12 3.5z" fill="currentColor"/></svg>
+        <span>카카오톡</span>
+    </a>
+    <a href="https://www.instagram.com/jayscos25/" target="_blank" rel="noopener" class="insta" aria-label="인스타그램">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg>
+        <span>인스타그램</span>
+    </a>
+    <a href="https://smartstore.naver.com/jayscos" target="_blank" rel="noopener" class="store" aria-label="네이버 스마트스토어">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5 5.6 4.5h12.8L20 9.5"/><path d="M4 9.5c0 1.5 1.2 2.6 2.7 2.6S9.3 11 9.3 9.5c0 1.5 1.2 2.6 2.7 2.6s2.7-1.1 2.7-2.6c0 1.5 1.2 2.6 2.7 2.6S20 11 20 9.5"/><path d="M5.5 12v7.5h13V12"/><path d="M10 19.5v-4.5h4v4.5"/></svg>
+        <span>스마트스토어</span>
     </a>
     <button type="button" class="top" data-scroll-top aria-label="맨 위로">
         <svg class="ico" viewBox="0 0 24 24"><path d="m6 14 6-6 6 6"/></svg>
