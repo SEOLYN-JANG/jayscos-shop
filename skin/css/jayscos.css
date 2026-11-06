@@ -89,9 +89,11 @@ html[data-shot] #wrap{min-height:0}
 .cart-count:empty{display:none}
 .gnb{display:none}
 @media(min-width:1024px){
-  .header .inner{grid-template-columns:auto 1fr auto;gap:30px}
+  .header .inner{grid-template-columns:auto 1fr auto;gap:0}
   .header .left .iconbtn.menu{display:none}
-  .gnb{display:flex;justify-content:center;gap:2px}
+  .gnb{display:flex;justify-content:flex-end;gap:2px}   /* 카테고리를 오른쪽 아이콘 옆에 붙임 (2026-11-06 업체 요청) */
+  .header .right::before{content:"";width:1px;height:20px;background:var(--line);margin:0 14px 0 12px}   /* FAQ와 돋보기 사이 세로 구분선 */
+  body.home .header:not(.scrolled) .right::before{background:rgba(15,27,51,.25)}
   .gnb>li>a{display:flex;align-items:center;height:44px;padding:0 15px;border-radius:999px;font-weight:700;font-size:16px;white-space:nowrap;color:var(--ink)}
   .gnb>li>a:hover{background:var(--sea-2);color:var(--blue)}
   .gnb>li>a.on{color:var(--blue)}
